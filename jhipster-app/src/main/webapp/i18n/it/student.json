@@ -1,0 +1,27 @@
+{
+    "universityApp": {
+        "student" : {
+            "home": {
+                "title": "Students",
+                "createLabel": "Genera un nuovo Student",
+                "createOrEditLabel": "Genera o modifica un Student"
+            },
+            "created": "&Egrave; stato generato un nuovo Student con identificatore {{ param }}",
+            "updated": "&Egrave; stato aggiornato Student identificato da {{ param }}",
+            "deleted": "&Egrave; stato eliminato Student con identificatore {{ param }}",
+            "delete": {
+                "question": "Sei sicuro di volere eliminare Student {{ id }}?"
+            },
+            "detail": {
+                "title": "Student"
+            },
+            "name": "Name",
+            "surname": "Surname",
+            "sex": "Sex",
+            "dateOfBirth": "Date Of Birth",
+            "nationality": "Nationality",
+            "studentNumber": "Student Number",
+            "attend": "Attend"
+        }
+    }
+}

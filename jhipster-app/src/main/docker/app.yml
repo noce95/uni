@@ -1,0 +1,14 @@
+version: '2'
+services:
+    university-app:
+        image: university
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_DATASOURCE_URL=jdbc:mysql://university-mysql:3306/university?useUnicode=true&characterEncoding=utf8&useSSL=false
+            - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
+        ports:
+            - 8080:8080
+    university-mysql:
+        extends:
+            file: mysql.yml
+            service: university-mysql
