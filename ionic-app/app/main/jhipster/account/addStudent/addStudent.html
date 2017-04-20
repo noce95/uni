@@ -1,0 +1,59 @@
+<ion-view view-title="add student">
+
+    <ion-content>
+        <div>pagina per aggiungere studenti</div>
+
+        <form name="editForm" role="form">
+            <div>
+                <h4 id="myStudentLabel">Create or edit a Student</h4>
+            </div>
+            <div>
+                <label for="id">ID</label>
+                <input style="border: 1px solid black" type="text" id="id" name="id"/>
+            </div>
+            <div>
+                <label for="field_name">Name</label>
+                <input style="border: 1px solid black" type="text" name="name" id="field_name"/>
+            </div>
+            <div>
+                <label for="field_surname">Surname</label>
+                <input style="border: 1px solid black" type="text" name="surname" id="field_surname"/>
+            </div>
+            <div>
+                <label for="field_sex">Sex</label>
+                <select name="sex" id="field_sex"> 
+                    <option value="MALE">MALE</option>
+                    <option value="FEMALE">FEMALE</option>
+                </select>
+            </div>
+            <div>
+                <label for="field_dateOfBirth">Date Of Birth</label>
+                <div>
+                    <input id="field_dateOfBirth" type="date" name="dateOfBirth"/>
+                    <!--<span>
+                        <button type="button"></button>
+                    </span>-->
+                </div>
+            </div>
+            <div>
+                <label for="field_nationality">Nationality</label>
+                <input style="border: 1px solid black" type="text" name="nationality" id="field_nationality"/>
+            </div>
+            <div>
+                <label for="field_studentNumber">Student Number</label>
+                <input style="border: 1px solid black" type="text" name="studentNumber" id="field_studentNumber"/>
+            </div>
+            <div>
+                <button type="button">
+                    <span></span>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit">
+                    <span></span>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+
+
+    </ion-content>
+</ion-view>
+

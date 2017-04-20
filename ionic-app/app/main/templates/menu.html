@@ -49,6 +49,12 @@
                     <span translate="global.menu.account.password">Password</span>
                 </ion-item>
                 
+                <!-- aggiunto-->
+                <ion-item ng-switch-when="true" menu-close ui-sref="addStudent">
+                    <span>Add student</span>
+                </ion-item>
+                <!-- fin qua-->
+                
                 <ion-item ng-switch-when="true" menu-close ng-click="vm.logout()">
                     <span translate="global.menu.account.logout">Log Out</span>
                 </ion-item>
