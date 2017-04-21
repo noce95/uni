@@ -1,0 +1,106 @@
+<ion-view view-title="add student">
+
+    <ion-content>
+
+        <form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+            <div class="modal-header">
+               
+                <h4 class="modal-title" id="myStudentLabel">Create or edit a Student</h4>
+            </div>
+            <div class="modal-body">
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" ng-show="vm.student.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                           ng-model="vm.student.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                           ng-model="vm.student.name"
+                           required/>
+                    <div ng-show="editForm.name.$invalid">
+                        <p class="help-block"
+                           ng-show="editForm.name.$error.required">
+                            This field is required.
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="field_surname">Surname</label>
+                    <input type="text" class="form-control" name="surname" id="field_surname"
+                           ng-model="vm.student.surname"
+                           required/>
+                    <div ng-show="editForm.surname.$invalid">
+                        <p class="help-block"
+                           ng-show="editForm.surname.$error.required">
+                            This field is required.
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="field_sex">Sex</label>
+                    <select class="form-control" name="sex" ng-model="vm.student.sex" id="field_sex" required>
+                        <option value="MALE">MALE</option>
+                        <option value="FEMALE">FEMALE</option>
+                    </select>
+                    <div ng-show="editForm.sex.$invalid">
+                        <p class="help-block"
+                           ng-show="editForm.sex.$error.required">
+                            This field is required.
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="field_dateOfBirth">Date Of Birth</label>
+                    <div class="input-group">
+                        <input id="field_dateOfBirth" type="text" class="form-control" name="dateOfBirth" uib-datepicker-popup="{{dateformat}}" ng-model="vm.student.dateOfBirth" is-open="vm.datePickerOpenStatus.dateOfBirth"
+                               required/>
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="vm.openCalendar('dateOfBirth')"><i class="glyphicon glyphicon-calendar"></i></button>
+                        </span>
+                    </div>
+                    <div ng-show="editForm.dateOfBirth.$invalid">
+                        <p class="help-block"
+                           ng-show="editForm.dateOfBirth.$error.required">
+                            This field is required.
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="field_nationality">Nationality</label>
+                    <input type="text" class="form-control" name="nationality" id="field_nationality"
+                           ng-model="vm.student.nationality"
+                           />
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="field_studentNumber">Student Number</label>
+                    <input type="text" class="form-control" name="studentNumber" id="field_studentNumber"
+                           ng-model="vm.student.studentNumber"
+                           />
+                </div>
+<!--
+                <div class="form-group">
+                    <label for="field_attend">Attend</label>
+                    <select class="form-control" id="field_attend" multiple name="attend" ng-model="vm.student.attends" ng-options="course as course.id for course in vm.courses track by course.id"></select>
+                </div>
+-->
+            </div>
+            <div class="modal-footer">
+                <!--
+                <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+                    <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+                </button>
+                -->
+                <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+                    <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+
+
+
+    </ion-content>
+</ion-view>
+

@@ -3,8 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Administrator/Desktop/jhipster-ionic/ionic-app/app/main/templates/menu.html</file>
-            <file>file:/C:/Users/Administrator/Desktop/jhipster-ionic/ionic-app/app/main/templates/login.html</file>
+            <file>file:/C:/Users/Administrator/Desktop/jhipster-ionic/ionic-app/app/main/jhipster/account/addStudent/addStudent.html</file>
+            <file>file:/C:/Users/Administrator/Desktop/jhipster-ionic/ionic-app/app/main/jhipster/account/password/password.controller.js</file>
+            <file>file:/C:/Users/Administrator/Desktop/jhipster-ionic/ionic-app/app/main/jhipster/account/addStudent/addStudent.controller.js</file>
+            <file>file:/C:/Users/Administrator/Desktop/jhipster-ionic/ionic-app/app/main/jhipster/account/settings/settings.html</file>
         </group>
     </open-files>
 </project-private>

@@ -14,12 +14,14 @@
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/ionic/release/css/ionic.css" />
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <!-- endbower -->
     <!-- endbuild -->
 
     <!-- build:css main/styles/app.css -->
     <!-- inject:css -->
     <link rel="stylesheet" href="main/styles/main.css">
+    
     <!-- endinject -->
     <!-- endbuild -->
   </head>
@@ -125,7 +127,9 @@
     <script src="main/jhipster/account/password/password-strength-bar.directive.js"></script>
     <script src="main/jhipster/account/password/password.state.js"></script>
     <script src="main/jhipster/account/password/password.controller.js"></script>
-    <script src="main/jhipster/account/addStudent/addStudent.controller.js"></script>
+    <script src="main/jhipster/account/entities/addStudent/addStudentService.js"></script>
+    <script src="main/jhipster/account/entities/addStudent/addStudent.state.js"></script>
+    <script src="main/jhipster/account/entities/addStudent/addStudent.controller.js"></script>
     <script src="main/jhipster/account/activate/activate.state.js"></script>
     <script src="main/jhipster/account/activate/activate.controller.js"></script>
     <script src="main/jhipster/account/account.state.js"></script>
@@ -139,11 +143,6 @@
     <script src="i18n/angular-locale_fr.js"></script>
     <script src="i18n/angular-locale_en.js"></script>
     <script src="app.js"></script>
-    
-    
-    
-    <script src="main/jhipster/account/addStudent/addStudent.state.js"></script>
-    <!--  aggiunto io questo sopra-->
     <!-- endinject -->
     <!-- endbuild -->
   </body>

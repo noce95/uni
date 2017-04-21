@@ -17,17 +17,28 @@
             },
             views: {
                 'pageContent': {
-                    templateUrl: 'main/jhipster/account/addStudent/addStudent.html',
+                    templateUrl: 'main/jhipster/account/entities/addStudent/addStudent.html',
                     controller: 'addStudentController',
                     controllerAs: 'vm'
                 }
-            }/*,
+            },
             resolve: {
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
-                    $translatePartialLoader.addPart('register');
+                    $translatePartialLoader.addPart('addStudent');
                     return $translate.refresh();
-                }]
-            }*/
+                }],
+                    entity: function () {
+                            return {
+                                name: null,
+                                surname: null,
+                                sex: null,
+                                dateOfBirth: null,
+                                nationality: null,
+                                studentNumber: null,
+                                id: null
+                            };
+                        }
+            }
         });
     }
 })();
