@@ -1,8 +1,8 @@
 <ion-view view-title="add student">
 
     <ion-content>
-
-        <form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+        
+        <form ng-show="vm.showForm" name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
 
             <div class="modal-header">
                
@@ -98,8 +98,12 @@
                 </button>
             </div>
         </form>
-
-
+          
+        <div ng-show="vm.showMsg" class="col-xs-4 no-padding-left">
+                    <span>creato nuovo studente</span>
+        </div>
+        <button menu-close ui-sref="home" ng-show="vm.showMsg" class="btn btn-primary">back</button>
+        
 
     </ion-content>
 </ion-view>

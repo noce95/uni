@@ -12,7 +12,7 @@
             parent: 'app',
             url: '/addStudent',
             data: {
-                authorities: [],
+                authorities: ['ROLE_USER'],
                 pageTitle: 'addStudent.title'
             },
             views: {

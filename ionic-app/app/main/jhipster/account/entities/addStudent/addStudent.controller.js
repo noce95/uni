@@ -5,13 +5,16 @@
         .module('main')
         .controller('addStudentController', addStudentController);
         
-    addStudentController.$inject = ['entity', 'addStudentService'];
-    function addStudentController (entity, addStudentService) {
+    addStudentController.$inject = ['$scope', 'entity', 'addStudentService'];
+    function addStudentController ($scope, entity, addStudentService) {
         var vm = this;
         vm.student = entity;
         vm.save = save;
         vm.datePickerOpenStatus = {};
         vm.openCalendar = openCalendar;
+        
+        vm.showForm=true;
+        vm.showMsg=false;
         
         function save () {
             vm.isSaving = true;
@@ -27,6 +30,8 @@
             $uibModalInstance.close(result);
             vm.isSaving = false;*/
             console.log("studente inserito correttamente");
+            vm.showForm=false;
+            vm.showMsg=true;
         }
 
         function onSaveError () {

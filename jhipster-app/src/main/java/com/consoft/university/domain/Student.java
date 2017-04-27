@@ -150,13 +150,13 @@ public class Student implements Serializable {
 
     public Student addAttend(Course course) {
         this.attends.add(course);
-        course.getStudents().add(this);
+        //course.getStudents().add(this);
         return this;
     }
 
     public Student removeAttend(Course course) {
         this.attends.remove(course);
-        course.getStudents().remove(this);
+        //course.getStudents().remove(this);
         return this;
     }
 
