@@ -1,110 +1,94 @@
-<ion-view view-title="add student">
-
+<ion-view view-title="Add Student">
     <ion-content>
-        
-        <form ng-show="vm.showForm" name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+        <div class="card">
+            <div class="item item-text-wrap" ng-show="vm.success || vm.error || vm.errorEmailExists">
+                <div class="alert alert-success" ng-show="vm.success" translate="settings.messages.success">
+                    <strong>Settings saved!</strong>
+                </div>
 
-            <div class="modal-header">
-               
-                <h4 class="modal-title" id="myStudentLabel">Create or edit a Student</h4>
+                <div class="alert alert-danger" ng-show="vm.errorEmailExists" translate="settings.messages.error.emailexists">
+                    <strong>E-mail is already in use!</strong> Please choose another one.
+                </div>
+
+                <div class="alert alert-danger" ng-show="vm.error" translate="settings.messages.error.fail">
+                    <strong>An error has occurred!</strong> Settings could not be saved.
+                </div>
+
             </div>
-            <div class="modal-body">
-                <jhi-alert-error></jhi-alert-error>
-                <div class="form-group" ng-show="vm.student.id">
-                    <label for="id">ID</label>
-                    <input type="text" class="form-control" id="id" name="id"
-                           ng-model="vm.student.id" readonly />
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="field_name">Name</label>
-                    <input type="text" class="form-control" name="name" id="field_name"
-                           ng-model="vm.student.name"
-                           required/>
-                    <div ng-show="editForm.name.$invalid">
+            <div class="list">
+                <form ng-show = "vm.showForm" name="form" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+                    <label class="item item-input">
+                        <span class="input-label">First Name</span>
+                        <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Enter your name"
+                               ng-model="vm.student.name" required>
+                    </label>
+                    <div ng-show="form.firstName.$dirty && form.firstName.$invalid" class="text-center">
                         <p class="help-block"
-                           ng-show="editForm.name.$error.required">
-                            This field is required.
+                           ng-show="form.firstName.$error.required" translate="settings.messages.validate.firstname.required">
+                            Your first name is required.
+                        </p>
+                        <p class="help-block"
+                           ng-show="form.firstName.$error.minlength" translate="settings.messages.validate.firstname.minlength">
+                            Your first name is required to be at least 1 character.
+                        </p>
+                        <p class="help-block"
+                           ng-show="form.firstName.$error.maxlength" translate="settings.messages.validate.firstname.maxlength">
+                            Your first name cannot be longer than 50 characters.
                         </p>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="field_surname">Surname</label>
-                    <input type="text" class="form-control" name="surname" id="field_surname"
-                           ng-model="vm.student.surname"
-                           required/>
-                    <div ng-show="editForm.surname.$invalid">
+
+                    <label class="item item-input">
+                        <span class="input-label">Last Name</span>
+                        <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Enter your surname"
+                               ng-model="vm.student.surname" ng-minlength=1 ng-maxlength=50 required maxlength="50">
+                    </label>
+                    <div ng-show="form.lastName.$dirty && form.lastName.$invalid" class="text-center">
                         <p class="help-block"
-                           ng-show="editForm.surname.$error.required">
-                            This field is required.
+                           ng-show="form.lastName.$error.required" translate="settings.messages.validate.lastname.required">
+                            Your last name is required.
+                        </p>
+                        <p class="help-block"
+                           ng-show="form.lastName.$error.minlength" translate="settings.messages.validate.lastname.minlength">
+                            Your last name is required to be at least 1 character.
+                        </p>
+                        <p class="help-block"
+                           ng-show="form.lastName.$error.maxlength" translate="settings.messages.validate.lastname.maxlength">
+                            Your last name cannot be longer than 50 characters.
                         </p>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="field_sex">Sex</label>
-                    <select class="form-control" name="sex" ng-model="vm.student.sex" id="field_sex" required>
-                        <option value="MALE">MALE</option>
-                        <option value="FEMALE">FEMALE</option>
-                    </select>
-                    <div ng-show="editForm.sex.$invalid">
-                        <p class="help-block"
-                           ng-show="editForm.sex.$error.required">
-                            This field is required.
-                        </p>
+                    
+                    <label class="item item-input">
+                        <span class="input-label">Sex</span>
+                            <select style="width:60%;" name="sex" ng-model="vm.student.sex" id="field_sex" required>
+                                <option value="MALE">MALE</option>
+                                <option value="FEMALE">FEMALE</option>
+                            </select>
+                    </label>
+                    
+                    <label class="item item-input">
+                        <span class="input-label">Date of birth</span>
+                            <input type="date" name="dateOfBirth" uib-datepicker-popup="{{dateformat}}" ng-model="vm.student.dateOfBirth" is-open="vm.datePickerOpenStatus.dateOfBirth">
+                    </label>
+                    
+                    <label class="item item-input">
+                        <span class="input-label">Nationality</span>
+                        <input input type="text" class="form-control" placeholder="Enter your nationality" name="nationality" id="field_nationality" ng-model="vm.student.nationality">
+                    </label>
+                    
+                    <label class="item item-input">
+                        <span class="input-label">Student Number</span>
+                        <input input type="text" class="form-control" placeholder="Enter your student number" name="studentNumber" id="field_studentNumber"
+                           ng-model="vm.student.studentNumber">
+                    </label>
+
+                    <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="button button-full button-positive">Save</button>
+                </form>
+                    <div style="font-size: 1.5em" class="alert alert-success" ng-show="vm.showMsg">
+                        <div>Studente aggiunto correttamente</div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="field_dateOfBirth">Date Of Birth</label>
-                    <div class="input-group">
-                        <input id="field_dateOfBirth" type="text" class="form-control" name="dateOfBirth" uib-datepicker-popup="{{dateformat}}" ng-model="vm.student.dateOfBirth" is-open="vm.datePickerOpenStatus.dateOfBirth"
-                               required/>
-                        <span class="input-group-btn">
-                            <button type="button" class="btn btn-default" ng-click="vm.openCalendar('dateOfBirth')"><i class="glyphicon glyphicon-calendar"></i></button>
-                        </span>
-                    </div>
-                    <div ng-show="editForm.dateOfBirth.$invalid">
-                        <p class="help-block"
-                           ng-show="editForm.dateOfBirth.$error.required">
-                            This field is required.
-                        </p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="field_nationality">Nationality</label>
-                    <input type="text" class="form-control" name="nationality" id="field_nationality"
-                           ng-model="vm.student.nationality"
-                           />
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="field_studentNumber">Student Number</label>
-                    <input type="text" class="form-control" name="studentNumber" id="field_studentNumber"
-                           ng-model="vm.student.studentNumber"
-                           />
-                </div>
-<!--
-                <div class="form-group">
-                    <label for="field_attend">Attend</label>
-                    <select class="form-control" id="field_attend" multiple name="attend" ng-model="vm.student.attends" ng-options="course as course.id for course in vm.courses track by course.id"></select>
-                </div>
--->
+                <button ng-show="vm.showMsg" type="submit" ui-sref="home" menu-close ng-disabled="form.$invalid" class="button button-full button-positive" ng-click="vm.ricalcola()">Back to home</button>
+                
             </div>
-            <div class="modal-footer">
-                <!--
-                <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
-                    <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
-                </button>
-                -->
-                <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
-                    <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
-                </button>
-            </div>
-        </form>
-          
-        <div ng-show="vm.showMsg" class="col-xs-4 no-padding-left">
-                    <span>creato nuovo studente</span>
         </div>
-        <button menu-close ui-sref="home" ng-show="vm.showMsg" class="btn btn-primary">back</button>
-        
-
     </ion-content>
-</ion-view>
-

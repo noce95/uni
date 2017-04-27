@@ -5,13 +5,15 @@
         .module('main')
         .controller('addStudentController', addStudentController);
         
-    addStudentController.$inject = ['$scope', 'entity', 'addStudentService'];
-    function addStudentController ($scope, entity, addStudentService) {
+    addStudentController.$inject = ['$state', 'entity', 'addStudentService','$window'];
+    function addStudentController ($state, entity, addStudentService, $window) {
         var vm = this;
         vm.student = entity;
         vm.save = save;
         vm.datePickerOpenStatus = {};
         vm.openCalendar = openCalendar;
+        
+        vm.ricalcola = ricalcola;
         
         vm.showForm=true;
         vm.showMsg=false;
@@ -42,6 +44,12 @@
 
         function openCalendar (date) {
             vm.datePickerOpenStatus[date] = true;
+        }
+        
+        function ricalcola(){
+            console.log("sono in ricalcola");
+            $window.location.reload();
+            $state.go('home');
         }
     }
 })();
