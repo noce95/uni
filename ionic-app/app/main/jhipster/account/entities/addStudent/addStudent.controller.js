@@ -5,15 +5,14 @@
         .module('main')
         .controller('addStudentController', addStudentController);
         
-    addStudentController.$inject = ['$state', 'entity', 'addStudentService','$window'];
-    function addStudentController ($state, entity, addStudentService, $window) {
+    addStudentController.$inject = ['$timeout','$state', 'entity', 'addStudentService','$window'];
+    function addStudentController ($timeout, $state, entity, addStudentService, $window) {
         var vm = this;
         vm.student = entity;
         vm.save = save;
         vm.datePickerOpenStatus = {};
         vm.openCalendar = openCalendar;
         
-        vm.ricalcola = ricalcola;
         
         vm.showForm=true;
         vm.showMsg=false;
@@ -34,6 +33,12 @@
             console.log("studente inserito correttamente");
             vm.showForm=false;
             vm.showMsg=true;
+            
+            $timeout (function (){
+                //console.log("sono in ricalcola");
+                $window.location.reload();
+                $state.go('home');
+            }, 1500);
         }
 
         function onSaveError () {
@@ -46,11 +51,7 @@
             vm.datePickerOpenStatus[date] = true;
         }
         
-        function ricalcola(){
-            console.log("sono in ricalcola");
-            $window.location.reload();
-            $state.go('home');
-        }
+        
     }
 })();
 

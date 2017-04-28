@@ -4,7 +4,7 @@ package com.consoft.university.web.rest;
 import java.util.HashSet;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
-/*questi dopo non so se siano utili*/
+
 import com.consoft.university.domain.Authority;
 import com.consoft.university.domain.User;
 import com.consoft.university.repository.UserRepository;
