@@ -86,6 +86,11 @@
                                  constraintName="fk_user_id"
                                  referencedColumnNames="id"
                                  referencedTableName="jhi_user"/>
+        
+        
+        
+        
+        
         <loadData encoding="UTF-8"
                   file="config/liquibase/users.csv"
                   separator=";"
@@ -99,7 +104,7 @@
                   file="config/liquibase/authorities.csv"
                   separator=";"
                   tableName="jhi_authority"/>
-
+        
         <loadData encoding="UTF-8"
                   file="config/liquibase/users_authorities.csv"
                   separator=";"
@@ -145,5 +150,8 @@
                                  referencedColumnNames="event_id"
                                  referencedTableName="jhi_persistent_audit_event"/>
     </changeSet>
+
+
+                  
 
 </databaseChangeLog>

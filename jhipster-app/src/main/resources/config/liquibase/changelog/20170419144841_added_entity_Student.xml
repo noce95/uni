@@ -60,5 +60,12 @@
 
         <addPrimaryKey columnNames="students_id, attends_id" tableName="student_attend"/>
         
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/student.csv"
+                  separator=";"
+                  tableName="student">
+        <column name="created_date" type="timestamp"/>
+        </loadData>
+        
     </changeSet>
 </databaseChangeLog>
