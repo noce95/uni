@@ -53,6 +53,9 @@
                 <ion-item ng-switch-when="true" menu-close ui-sref="addStudent" has-authority="ROLE_USER">
                     <span>Add student</span>
                 </ion-item>
+                <ion-item ng-switch-when="true" menu-close ui-sref="addCourse" has-authority="ROLE_ADMOFFICE">
+                    <span>Add course</span>
+                </ion-item>
                 <!-- fin qua-->
                 
                 <ion-item ng-switch-when="true" menu-close ng-click="vm.logout()">

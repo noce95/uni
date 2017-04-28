@@ -8,40 +8,36 @@
     stateConfig.$inject = ['$stateProvider'];
 
     function stateConfig($stateProvider) {
-        $stateProvider.state('addStudent', {
+        $stateProvider.state('addCourse', {
             parent: 'app',
-            url: '/addStudent',
+            url: '/addCourse',
             data: {
-                authorities: ['ROLE_USER'],
-                pageTitle: 'addStudent.title'
+                authorities: ['ROLE_ADMOFFICE'],
+                pageTitle: 'addCourse.title'
             },
             views: {
                 'pageContent': {
-                    templateUrl: 'main/jhipster/account/entities/addStudent/addStudent.html',
-                    controller: 'addStudentController',
+                    templateUrl: 'main/jhipster/account/entities/addCourse/addCourse.html',
+                    controller: 'addCourseController',
                     controllerAs: 'vm'
                 }
             },
             resolve: {
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
-                    $translatePartialLoader.addPart('addStudent');
-                    return $translate.refresh();
+                $translatePartialLoader.addPart('addCourse');
+                        return $translate.refresh();
                 }],
                     entity: function () {
                             return {
+                                code: null,
                                 name: null,
-                                surname: null,
-                                sex: null,
-                                dateOfBirth: null,
-                                nationality: null,
-                                studentNumber: null,
+                                description: null,
+                                cfu: null,
+                                duration: null,
                                 id: null
                             };
                         }
-            }
+                    }
         });
     }
 })();
-
-
-

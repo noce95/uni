@@ -1,20 +1,6 @@
 <ion-view view-title="Add Student">
     <ion-content>
         <div class="card">
-            <div class="item item-text-wrap" ng-show="vm.success || vm.error || vm.errorEmailExists">
-                <div class="alert alert-success" ng-show="vm.success" translate="settings.messages.success">
-                    <strong>Settings saved!</strong>
-                </div>
-
-                <div class="alert alert-danger" ng-show="vm.errorEmailExists" translate="settings.messages.error.emailexists">
-                    <strong>E-mail is already in use!</strong> Please choose another one.
-                </div>
-
-                <div class="alert alert-danger" ng-show="vm.error" translate="settings.messages.error.fail">
-                    <strong>An error has occurred!</strong> Settings could not be saved.
-                </div>
-
-            </div>
             <div class="list">
                 <form ng-show = "vm.showForm" name="form" role="form" novalidate ng-submit="vm.save()" show-validation>
 
@@ -91,3 +77,4 @@
             </div>
         </div>
     </ion-content>
+</ion-view>
