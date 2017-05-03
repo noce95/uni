@@ -17,7 +17,6 @@
         vm.save = save;
         vm.courses = Course.query();
         vm.users = User.query();
-        vm.student.user = null;
         
         
         Principal.identity().then(function(account) {

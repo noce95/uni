@@ -16,7 +16,6 @@
         
         vm.showForm=true;
         vm.showMsg=false;
-        vm.student.user = null;
         
         
         Principal.identity().then(function(account) {
