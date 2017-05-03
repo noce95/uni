@@ -76,4 +76,13 @@ public class StudentServiceImpl implements StudentService{
         log.debug("Request to delete Student : {}", id);
         studentRepository.delete(id);
     }
+    
+    
+    /*aggiunto da mail*/
+    @Override
+    public List<Student> findByUserIsCurrentUser() {
+        log.debug("Request to get the current Student ");
+        List<Student> result = studentRepository.findByUserIsCurrentUser();
+        return result;
+    }
 }

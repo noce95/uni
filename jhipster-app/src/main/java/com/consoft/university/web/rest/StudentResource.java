@@ -27,6 +27,18 @@ import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Optional;
 
+
+/* da qui agginti con mail*/
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import com.consoft.university.service.UserService;
+import org.springframework.security.core.GrantedAuthority;
+import java.util.ArrayList;
+/* fino a qui*/
+
+
 /**
  * REST controller for managing Student.
  */
@@ -108,10 +120,36 @@ public class StudentResource {
      */
     @GetMapping("/students")
     @Timed
+    
+/*sostituito con quello dopo*//*
     public List<Student> getAllStudents() {
         log.debug("REST request to get all Students");
         return studentService.findAll();
+    }*/
+    
+/*aggiunta questa funzione da mail*/
+    public List<Student> getAllStudents() {
+        log.debug("REST request to get all Students");
+        List<Student> studentList = new ArrayList<Student>();
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String currentPrincipalName = auth.getName();
+        log.debug("authentication name: " + currentPrincipalName);
+        //String currentPrincipalName = authentication.getName();
+        //if(currentPrincipalName.equals("admin")){
+        log.debug("authorities: "+auth.getAuthorities().size());
+        for(GrantedAuthority a : auth.getAuthorities()){
+            log.debug(a.toString());
+            if(a.getAuthority().equals(AuthoritiesConstants.ADMIN)){
+              return studentService.findAll();  
+            }
+        }
+                
+        studentList=studentService.findByUserIsCurrentUser();
+        return studentList;
+
     }
+    
+/*fin qui*/
 
     /**
      * GET  /students/:id : get the "id" student.

@@ -7,6 +7,9 @@ import java.util.List;
  * Service Interface for managing Student.
  */
 public interface StudentService {
+    /*aggiunto per mail*/
+    List<Student> findByUserIsCurrentUser();
+    /*fin qui*/
 
     /**
      * Save a student.
