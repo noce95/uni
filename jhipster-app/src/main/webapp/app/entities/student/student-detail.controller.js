@@ -5,9 +5,9 @@
         .module('universityApp')
         .controller('StudentDetailController', StudentDetailController);
 
-    StudentDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'Student', 'Course'];
+    StudentDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'Student', 'Course', 'User'];
 
-    function StudentDetailController($scope, $rootScope, $stateParams, previousState, entity, Student, Course) {
+    function StudentDetailController($scope, $rootScope, $stateParams, previousState, entity, Student, Course, User) {
         var vm = this;
 
         vm.student = entity;

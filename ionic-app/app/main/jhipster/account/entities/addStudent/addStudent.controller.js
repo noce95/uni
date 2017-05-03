@@ -5,8 +5,8 @@
         .module('main')
         .controller('addStudentController', addStudentController);
         
-    addStudentController.$inject = ['$timeout','$state', 'entity', 'addStudentService','$window'];
-    function addStudentController ($timeout, $state, entity, addStudentService, $window) {
+    addStudentController.$inject = ['$timeout','$state', 'entity', 'addStudentService','$window','Principal'];
+    function addStudentController ($timeout, $state, entity, addStudentService, $window, Principal) {
         var vm = this;
         vm.student = entity;
         vm.save = save;
@@ -16,6 +16,12 @@
         
         vm.showForm=true;
         vm.showMsg=false;
+        vm.student.user = null;
+        
+        
+        Principal.identity().then(function(account) {
+            vm.student.user = account;
+        });
         
         function save () {
             vm.isSaving = true;

@@ -45,7 +45,9 @@
             <column name="student_number" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-
+            <column name="user_id" type="bigint">
+                <constraints unique="true" nullable="true" />
+            </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
         
@@ -60,11 +62,12 @@
 
         <addPrimaryKey columnNames="students_id, attends_id" tableName="student_attend"/>
         
+        
         <loadData encoding="UTF-8"
                   file="config/liquibase/student.csv"
                   separator=";"
                   tableName="student">
-        <column name="created_date" type="timestamp"/>
+            <column name="created_date" type="timestamp"/>
         </loadData>
         
     </changeSet>

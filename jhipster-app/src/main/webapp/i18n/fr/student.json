@@ -21,7 +21,8 @@
             "dateOfBirth": "Date Of Birth",
             "nationality": "Nationality",
             "studentNumber": "Student Number",
-            "attend": "Attend"
+            "attend": "Attend",
+            "user": "User"
         }
     }
 }

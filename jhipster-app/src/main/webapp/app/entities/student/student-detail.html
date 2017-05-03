@@ -34,6 +34,10 @@
                 <a ui-sref="course-detail({id: attend.id})">{{attend.id}}</a>{{$last ? '' : ', '}}
             </span>
         </dd>
+        <dt><span data-translate="universityApp.student.user">User</span></dt>
+        <dd>
+            {{vm.student.user.id}}
+        </dd>
     </dl>
 
     <button type="submit"

@@ -26,6 +26,7 @@
                     <th><span data-translate="universityApp.student.nationality">Nationality</span></th>
                     <th><span data-translate="universityApp.student.studentNumber">Student Number</span></th>
                     <th><span data-translate="universityApp.student.attend">Attend</span></th>
+                    <th><span data-translate="universityApp.student.user">User</span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -42,6 +43,9 @@
                         <span ng-repeat="attend in student.attends">
                             <a class="form-control-static" ui-sref="course-detail({id: attend.id})">{{attend.id}}</a>{{$last ? '' : ', '}}
                         </span>
+                    </td>
+                    <td>
+                        {{student.user.id}}
                     </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">

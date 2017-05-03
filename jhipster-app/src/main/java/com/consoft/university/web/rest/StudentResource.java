@@ -1,6 +1,5 @@
 package com.consoft.university.web.rest;
 
-/*import mie*/
 import java.util.HashSet;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +10,6 @@ import com.consoft.university.repository.UserRepository;
 import com.consoft.university.security.AuthoritiesConstants;
 import com.consoft.university.service.UserService;
 import com.consoft.university.service.dto.UserDTO;
-/**/
 
 import com.codahale.metrics.annotation.Timed;
 import com.consoft.university.domain.Student;
@@ -41,13 +39,10 @@ public class StudentResource {
     private static final String ENTITY_NAME = "student";
         
     private final StudentService studentService;
-    
-/*aggiunto io*/
+
     @Autowired
     private UserService userService;
     
-/**/
-
     public StudentResource(StudentService studentService) {
         this.studentService = studentService;
     }
@@ -67,8 +62,7 @@ public class StudentResource {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert(ENTITY_NAME, "idexists", "A new student cannot already have an ID")).body(null);
         }
         
-/*aggiunto io*/
-        /*L'utente associato allo studente creato dovrà cambiare il suo ruolo da USER->STUDENT */  
+        /*L'utente associato allo studente creato dovrà cambiare il suo ruolo da USER->STUDENT */
         User user = userService.getUserWithAuthorities();
         Set<Authority> authorities = new HashSet<>();
         Authority a = new Authority();
@@ -78,8 +72,7 @@ public class StudentResource {
         log.debug("User id: " + user.getId());
         UserDTO userDto = new UserDTO(user);
         userService.updateUser(userDto);
-/*mail*/
-
+        
         Student result = studentService.save(student);
         return ResponseEntity.created(new URI("/api/students/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, result.getId().toString()))
