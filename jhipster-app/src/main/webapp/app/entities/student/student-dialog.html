@@ -81,7 +81,7 @@
 
         <div class="form-group">
             <label data-translate="universityApp.student.attend" for="field_attend">Attend</label>
-            <select class="form-control" id="field_attend" multiple name="attend" ng-model="vm.student.attends" ng-options="course as course.name for course in vm.courses track by course.name"></select>
+            <select class="form-control" id="field_attend" multiple name="attend" ng-model="vm.student.attends" ng-options="course as course.id for course in vm.courses track by course.id"></select>
         </div>
         
     </div>
