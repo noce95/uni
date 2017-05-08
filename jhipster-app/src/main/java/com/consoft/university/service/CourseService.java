@@ -2,11 +2,16 @@ package com.consoft.university.service;
 
 import com.consoft.university.domain.Course;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Service Interface for managing Course.
  */
 public interface CourseService {
+    
+/* aggiunto io questo sotto*/    
+   List<Course> findAllCoursesOfTheCurrentUser();
+    //Set<Course> findAllCoursesOfTheCurrentUser();
 
     /**
      * Save a course.

@@ -2,23 +2,27 @@ package com.consoft.university.service.impl;
 
 import com.consoft.university.service.CourseService;
 import com.consoft.university.domain.Course;
+import com.consoft.university.domain.Student;
 import com.consoft.university.repository.CourseRepository;
+import java.util.ArrayList;
+import java.util.HashSet;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * Service Implementation for managing Course.
  */
 @Service
 @Transactional
-public class CourseServiceImpl implements CourseService{
+public class CourseServiceImpl implements CourseService {
 
     private final Logger log = LoggerFactory.getLogger(CourseServiceImpl.class);
-    
+
     private final CourseRepository courseRepository;
 
     public CourseServiceImpl(CourseRepository courseRepository) {
@@ -39,9 +43,9 @@ public class CourseServiceImpl implements CourseService{
     }
 
     /**
-     *  Get all the courses.
-     *  
-     *  @return the list of entities
+     * Get all the courses.
+     *
+     * @return the list of entities
      */
     @Override
     @Transactional(readOnly = true)
@@ -53,10 +57,10 @@ public class CourseServiceImpl implements CourseService{
     }
 
     /**
-     *  Get one course by id.
+     * Get one course by id.
      *
-     *  @param id the id of the entity
-     *  @return the entity
+     * @param id the id of the entity
+     * @return the entity
      */
     @Override
     @Transactional(readOnly = true)
@@ -67,13 +71,33 @@ public class CourseServiceImpl implements CourseService{
     }
 
     /**
-     *  Delete the  course by id.
+     * Delete the course by id.
      *
-     *  @param id the id of the entity
+     * @param id the id of the entity
      */
     @Override
     public void delete(Long id) {
         log.debug("Request to delete Course : {}", id);
         courseRepository.delete(id);
+    }
+
+    /*inventato io*/
+ /* @Override
+    public List<Course> findAllCoursesOfTheCurrentUser() {
+        log.debug("Request to get the current Student ");
+        List<Course> result = courseRepository.findAllCoursesOfTheCurrentUser();
+        return result;
+    }*/
+    @Override
+    public List<Course> findAllCoursesOfTheCurrentUser() {
+        log.debug("Request to get the current Student ");
+        //Set<Course> result = courseRepository.findAllCoursesOfTheCurrentUser();
+        List<Student> result = courseRepository.findAllCoursesOfTheCurrentUser();
+        List<Course> parsedResult = new ArrayList<Course>();
+        Set<Course> myCourseSet = new HashSet<Course>();
+        myCourseSet = result.get(0).getAttends();
+        
+        myCourseSet.forEach(c -> parsedResult.add(c));
+        return parsedResult;
     }
 }

@@ -1,5 +1,20 @@
 package com.consoft.university.web.rest;
 
+/*aggiunte a caso*/
+
+import java.util.HashSet;
+import java.util.Set;
+import org.springframework.beans.factory.annotation.Autowired;
+
+
+import com.consoft.university.domain.Authority;
+import com.consoft.university.domain.User;
+import com.consoft.university.repository.UserRepository;
+import com.consoft.university.security.AuthoritiesConstants;
+import com.consoft.university.service.UserService;
+import com.consoft.university.service.dto.UserDTO;
+/**/
+
 import com.codahale.metrics.annotation.Timed;
 import com.consoft.university.domain.Course;
 import com.consoft.university.service.CourseService;
@@ -15,6 +30,17 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Optional;
+
+
+/* da qui agginti con mail*/
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import com.consoft.university.service.UserService;
+import org.springframework.security.core.GrantedAuthority;
+import java.util.ArrayList;
+/* fino a qui*/
 
 /**
  * REST controller for managing Course.
@@ -82,10 +108,35 @@ public class CourseResource {
      */
     @GetMapping("/courses")
     @Timed
+    
+/*sostituito con quello dopo*//*
     public List<Course> getAllCourses() {
         log.debug("REST request to get all Courses");
         return courseService.findAll();
     }
+    */
+  
+/*inventato io*/
+    public List<Course> getAllCourse() {
+        log.debug("REST request to get all Course");
+        List<Course> coursesList = new ArrayList<Course>();
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String currentPrincipalName = auth.getName();
+        log.debug("authentication name: " + currentPrincipalName);
+     
+        log.debug("authorities: "+auth.getAuthorities().size());
+        for(GrantedAuthority a : auth.getAuthorities()){
+            log.debug(a.toString());
+            if(a.getAuthority().equals(AuthoritiesConstants.ADMIN)){
+              return courseService.findAll();  
+            }
+        }
+        coursesList=courseService.findAllCoursesOfTheCurrentUser();
+        return coursesList;
+    }
+/*fin qui*/
+            
+            
 
     /**
      * GET  /courses/:id : get the "id" course.
