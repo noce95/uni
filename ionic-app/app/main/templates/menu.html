@@ -48,16 +48,12 @@
                 <ion-item ng-switch-when="true" menu-close ui-sref="password">
                     <span translate="global.menu.account.password">Password</span>
                 </ion-item>
-                
-                <!-- aggiunto-->
                 <ion-item ng-switch-when="true" menu-close ui-sref="addStudent" has-authority="ROLE_USER">
-                    <span>Add student</span>
+                    <span>Add Student</span>
                 </ion-item>
                 <ion-item ng-switch-when="true" menu-close ui-sref="addCourse" has-authority="ROLE_ADMOFFICE">
-                    <span>Add course</span>
+                    <span>Add Course</span>
                 </ion-item>
-                <!-- fin qua-->
-                
                 <ion-item ng-switch-when="true" menu-close ng-click="vm.logout()">
                     <span translate="global.menu.account.logout">Log Out</span>
                 </ion-item>

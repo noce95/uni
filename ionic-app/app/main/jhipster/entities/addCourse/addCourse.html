@@ -1,0 +1,54 @@
+<ion-view view-title="Add Course">
+    <ion-content>
+        <div class="card">
+            <div class="list">
+                <form ng-show = vm.corsosalvato name="form" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+                    <label class="item item-input">
+                        <span class="input-label">Code</span>
+                        <input type="text" class="form-control" id="code" name="code" placeholder="Enter the code"
+                               ng-model="vm.course.code" required>
+                    </label>
+                    <div ng-show="form.firstName.$dirty && form.firstName.$invalid" class="text-center">
+                        <p style="color: red;" class="help-block"
+                           ng-show="form.firstName.$error.required">
+                            The code of the course is required.
+                        </p>
+                    </div>
+
+                    <label class="item item-input">
+                        <span class="input-label">Name</span>
+                        <input type="text" class="form-control" id="Name" name="Name" placeholder="Enter the name"
+                               ng-model="vm.course.name">
+                    </label>
+                    <div ng-show="form.lastName.$dirty && form.lastName.$invalid" class="text-center">
+                        <p style="color: red;" class="help-block"
+                           ng-show="form.lastName.$error.required">
+                            Your last name is required.
+                        </p>
+                    </div>
+                    
+                    <label class="item item-input">
+                        <span class="input-label">Description</span>
+                        <input type="text" class="form-control" placeholder="Enter a description" name="description" id="field_description" ng-model="vm.course.description">
+                    </label>
+                    
+                    <label class="item item-input">
+                        <span class="input-label">CFU</span>
+                        <input name="CFU" id="CFU" placeholder="Enter the cfu" type="number" min="0" max="20" step="1" ng-model="vm.course.cfu">
+                    </label>
+                    
+                    <label class="item item-input">
+                        <span class="input-label">Duration</span>
+                        <input name="duration" id="duration" placeholder="Enter the duration" type="number" min="0" max="2000" step="1" ng-model="vm.course.duration">
+                    </label>
+ 
+                    <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="button button-full button-positive">Save</button>
+                </form>
+                    <div style="font-size: 1.5em" class="alert alert-success" ng-show=vm.corsoavviso>
+                        <div>Corso aggiunto correttamente</div>
+                    </div>   
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

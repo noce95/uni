@@ -1,5 +1,5 @@
-<ion-view view-title="{{'global.menu.account.settings'| translate}}">
-
+<ion-view view-title="{{'global.menu.account.settings' | translate}}">
+    
     <ion-content>
         <div class="card">
             <div class="item item-text-wrap" ng-show="vm.success || vm.error || vm.errorEmailExists">
@@ -21,7 +21,7 @@
 
                     <label class="item item-input">
                         <span class="input-label" translate="settings.form.firstname">First Name</span>
-                        <input type="text" class="form-control" id="firstName" name="firstName" placeholder="{{'settings.form.firstname.placeholder'| translate}}"
+                        <input type="text" class="form-control" id="firstName" name="firstName" placeholder="{{'settings.form.firstname.placeholder' | translate}}"
                                ng-model="vm.settingsAccount.firstName" ng-minlength=1 ng-maxlength=50 required maxlength="50">
                     </label>
                     <div ng-show="form.firstName.$dirty && form.firstName.$invalid" class="text-center">
@@ -41,7 +41,7 @@
 
                     <label class="item item-input">
                         <span class="input-label" translate="settings.form.lastname">Last Name</span>
-                        <input type="text" class="form-control" id="lastName" name="lastName" placeholder="{{'settings.form.lastname.placeholder'| translate}}"
+                        <input type="text" class="form-control" id="lastName" name="lastName" placeholder="{{'settings.form.lastname.placeholder' | translate}}"
                                ng-model="vm.settingsAccount.lastName" ng-minlength=1 ng-maxlength=50 required maxlength="50">
                     </label>
                     <div ng-show="form.lastName.$dirty && form.lastName.$invalid" class="text-center">
@@ -61,7 +61,7 @@
 
                     <label class="item item-input">
                         <span class="input-label" translate="global.form.email">Email</span>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="{{'global.form.email.placeholder'| translate}}"
+                        <input type="email" class="form-control" id="email" name="email" placeholder="{{'global.form.email.placeholder' | translate}}"
                                ng-model="vm.settingsAccount.email" ng-minlength=5 ng-maxlength=100 required maxlength="100">
                     </label>
                     <div ng-show="form.email.$dirty && form.email.$invalid">
@@ -84,7 +84,7 @@
                     </div>
                     <label class="item item-input">
                         <span class="input-label" translate="settings.form.language">Language</span>
-                        <select id="langKey" name="langKey" ng-model="vm.settingsAccount.langKey" ng-controller="JhiLanguageController as languageVm" ng-options="code as (code |  findLanguageFromKey) for code in languageVm.languages"></select>
+                        <select id="langKey" name="langKey" ng-model="vm.settingsAccount.langKey" ng-controller="JhiLanguageController as languageVm" ng-options="code as (code | findLanguageFromKey) for code in languageVm.languages"></select>
                     </label>
 
                     <button type="submit" ng-disabled="form.$invalid" class="button button-full button-positive" translate="settings.form.button">Save</button>

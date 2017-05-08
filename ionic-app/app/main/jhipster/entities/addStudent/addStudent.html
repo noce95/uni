@@ -1,0 +1,76 @@
+<ion-view view-title="Add Student">
+    <ion-content>
+        <div class="card">
+            <div class="modal-body">
+                <jhi-alert-error></jhi-alert-error>
+            <div class="form-group" ng-show="vm.student.id">
+                <label for="id" data-translate="global.field.id">ID</label>
+                <input type="text" class="form-control" id="id" name="id"
+                        ng-model="vm.student.id" readonly />
+            </div>
+            <div class="list">
+                <form ng-show = vm.salvato name="form" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+                    <label class="item item-input">
+                        <span class="input-label">First Name</span>
+                        <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Enter your name"
+                               ng-model="vm.student.name" required>
+                    </label>
+                    <div ng-show="form.firstName.$dirty && form.firstName.$invalid" class="text-center">
+                        <p style="color: red;" class="help-block"
+                           ng-show="form.firstName.$error.required">
+                            Your first name is required.
+                        </p>
+                    </div>
+
+                    <label class="item item-input">
+                        <span class="input-label">Last Name</span>
+                        <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Enter your surname"
+                               ng-model="vm.student.surname" ng-minlength=1 ng-maxlength=50 required maxlength="50">
+                    </label>
+                    <div ng-show="form.lastName.$dirty && form.lastName.$invalid" class="text-center">
+                        <p style="color: red;" class="help-block"
+                           ng-show="form.lastName.$error.required">
+                            Your last name is required.
+                        </p>
+                    </div>
+                    
+                    <label class="item item-input">
+                        <span class="input-label">Sex</span>
+                            <select style="width:60%;" name="sex" ng-model="vm.student.sex" id="field_sex" required>
+                                <option value="MALE">MALE</option>
+                                <option value="FEMALE">FEMALE</option>
+                            </select>
+                    </label>
+                    
+                    <label class="item item-input">
+                        <span class="input-label">Date of birth</span>
+                            <input type="date" name="dateOfBirth" uib-datepicker-popup="{{dateformat}}" ng-model="vm.student.dateOfBirth" is-open="vm.datePickerOpenStatus.dateOfBirth">
+                    </label>
+                    
+                    <label class="item item-input">
+                        <span class="input-label">Nationality</span>
+                        <input input type="text" class="form-control" placeholder="Enter your nationality" name="nationality" id="field_nationality" ng-model="vm.student.nationality">
+                    </label>
+                    
+                    <label class="item item-input">
+                        <span class="input-label">Student Number</span>
+                        <input input type="text" class="form-control" placeholder="Enter your student number" name="studentNumber" id="field_studentNumber"
+                           ng-model="vm.student.studentNumber">
+                    </label>
+                    
+                    <div class="form-group" ng-show="false">
+                        <label for="id" data-translate="global.field.user">User</label>
+                        <input type="text" class="form-control" id="user" name="user"
+                                ng-model="vm.student.user.id" readonly />
+                    </div>
+
+                    <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="button button-full button-positive">Save</button>
+                </form>
+                    <div style="font-size: 1.5em" class="alert alert-success" ng-show=vm.avviso>
+                        <div>Studente aggiunto correttamente</div>
+                    </div>   
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

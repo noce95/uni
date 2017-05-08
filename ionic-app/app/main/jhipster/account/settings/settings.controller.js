@@ -5,9 +5,9 @@
         .module('main')
         .controller('SettingsController', SettingsController);
 
-    SettingsController.$inject = ['Principal', 'Auth', '$ionicHistory', 'JhiLanguageService', '$translate'];
+    SettingsController.$inject = ['$timeout','$scope','Principal', 'Auth', '$ionicHistory', 'JhiLanguageService', '$translate'];
 
-    function SettingsController (Principal, Auth, $ionicHistory, JhiLanguageService, $translate) {
+    function SettingsController ($timeout, $scope, Principal, Auth, $ionicHistory, JhiLanguageService, $translate) {
         var vm = this;
 
         vm.error = null;
@@ -50,6 +50,9 @@
                 vm.success = null;
                 vm.error = 'ERROR';
             });
+            $timeout(function () {
+            vm.success=null;
+        }, 1500);
         }
     }
 })();
