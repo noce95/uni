@@ -1,0 +1,26 @@
+<ion-view view-title="Courses">
+    <ion-content>
+        <div>
+            <br/>
+            <div class="table-responsive">
+                <table class="jh-table table table-striped">
+                    <thead style="font-weight: bold">
+                        <tr>
+                            <th><span>Code</span></th>
+                            <th><span>Name</span></th>
+                            <th><span>Cfu</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="course in vm.courses track by course.id">
+                            <td>{{course.code}}</td>
+                            <td>{{course.name}}</td>
+                            <td>{{course.cfu}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </ion-content>
+</ion-view>

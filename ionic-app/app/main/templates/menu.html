@@ -34,19 +34,19 @@
         <ion-content ng-switch="vm.isAuthenticated()">
             <ion-list>
                 <ion-item menu-close ui-sref="home">
-                    <span translate="global.menu.home">Home</span>
+                    <span>Home</span>
                 </ion-item>
                 <ion-item ng-switch-when="false" menu-close ng-click="vm.login()">
-                    <span translate="global.menu.account.login">Sign In</span>
+                    <span>Sign In</span>
                 </ion-item>
                 <ion-item ng-switch-when="false" menu-close ui-sref="register">
-                    <span translate="global.menu.account.register">Register</span>
+                    <span>Register</span>
                 </ion-item>
                 <ion-item ng-switch-when="true" menu-close ui-sref="settings">
-                    <span translate="global.menu.account.settings">Settings</span>
+                    <span>Settings</span>
                 </ion-item>
                 <ion-item ng-switch-when="true" menu-close ui-sref="password">
-                    <span translate="global.menu.account.password">Password</span>
+                    <span>Password</span>
                 </ion-item>
                 <ion-item ng-switch-when="true" menu-close ui-sref="addStudent" has-authority="ROLE_USER">
                     <span>Add Student</span>
@@ -54,8 +54,11 @@
                 <ion-item ng-switch-when="true" menu-close ui-sref="addCourse" has-authority="ROLE_ADMOFFICE">
                     <span>Add Course</span>
                 </ion-item>
+                <ion-item ng-switch-when="true" menu-close ui-sref="studentCourse" has-authority="ROLE_STUDENT">
+                    <span>Course</span>
+                </ion-item>
                 <ion-item ng-switch-when="true" menu-close ng-click="vm.logout()">
-                    <span translate="global.menu.account.logout">Log Out</span>
+                    <span>Log Out</span>
                 </ion-item>
             </ion-list>
         </ion-content>
