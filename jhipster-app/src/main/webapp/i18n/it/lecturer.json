@@ -1,0 +1,23 @@
+{
+    "universityApp": {
+        "lecturer" : {
+            "home": {
+                "title": "Lecturers",
+                "createLabel": "Genera un nuovo Lecturer",
+                "createOrEditLabel": "Genera o modifica un Lecturer"
+            },
+            "created": "&Egrave; stato generato un nuovo Lecturer con identificatore {{ param }}",
+            "updated": "&Egrave; stato aggiornato Lecturer identificato da {{ param }}",
+            "deleted": "&Egrave; stato eliminato Lecturer con identificatore {{ param }}",
+            "delete": {
+                "question": "Sei sicuro di volere eliminare Lecturer {{ id }}?"
+            },
+            "detail": {
+                "title": "Lecturer"
+            },
+            "name": "Name",
+            "surname": "Surname",
+            "lecturerNumber": "Lecturer Number"
+        }
+    }
+}
