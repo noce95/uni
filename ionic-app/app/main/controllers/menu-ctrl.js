@@ -1,6 +1,6 @@
 'use strict';
 angular.module('main')
-    .controller('MenuCtrl', function ($log, Auth, $state, Principal, LoginService) {
+    .controller('MenuCtrl', function ($log, Auth, $state, Principal, LoginService, $window) {
         var vm = this;
         vm.login = LoginService.open;
         vm.isAuthenticated = Principal.isAuthenticated;
@@ -9,6 +9,7 @@ angular.module('main')
         function logout () {
             Auth.logout();
             $state.go('home');
+            $window.location.reload(); //aggiunto per risolvere il problema della freccia quando si fa il logout
         }
 
     });

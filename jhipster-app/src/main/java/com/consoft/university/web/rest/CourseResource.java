@@ -1,19 +1,6 @@
 package com.consoft.university.web.rest;
 
-/*aggiunte a caso*/
 
-import java.util.HashSet;
-import java.util.Set;
-import org.springframework.beans.factory.annotation.Autowired;
-
-
-import com.consoft.university.domain.Authority;
-import com.consoft.university.domain.User;
-import com.consoft.university.repository.UserRepository;
-import com.consoft.university.security.AuthoritiesConstants;
-import com.consoft.university.service.UserService;
-import com.consoft.university.service.dto.UserDTO;
-/**/
 
 import com.codahale.metrics.annotation.Timed;
 import com.consoft.university.domain.Course;
@@ -31,15 +18,12 @@ import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Optional;
 
-
-/* da qui agginti con mail*/
+/*aggiunte a caso*/
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
-
-import com.consoft.university.service.UserService;
 import org.springframework.security.core.GrantedAuthority;
 import java.util.ArrayList;
+import com.consoft.university.security.AuthoritiesConstants;
 /* fino a qui*/
 
 /**
@@ -117,7 +101,7 @@ public class CourseResource {
     */
   
 /*inventato io*/
-    public List<Course> getAllCourse() {
+    public List<Course> getAllCourses() {
         log.debug("REST request to get all Course");
         List<Course> coursesList = new ArrayList<Course>();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -127,7 +111,7 @@ public class CourseResource {
         log.debug("authorities: "+auth.getAuthorities().size());
         for(GrantedAuthority a : auth.getAuthorities()){
             log.debug(a.toString());
-            if(a.getAuthority().equals(AuthoritiesConstants.ADMIN)){
+            if(a.getAuthority().equals(AuthoritiesConstants.ADMIN) || a.getAuthority().equals(AuthoritiesConstants.ADMOFFICE) || a.getAuthority().equals(AuthoritiesConstants.USER) ){
               return courseService.findAll();  
             }
         }

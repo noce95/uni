@@ -14,7 +14,7 @@
             parent: 'app',
             url: '/studentCourse',
             data: {
-                authorities: ['ROLE_STUDENT'],
+                authorities: ['ROLE_STUDENT','ROLE_ADMIN','ROLE_ADMOFFICE'],
                 pageTitle: 'studentCourse.title'
             },
             views: {

@@ -5,7 +5,7 @@ angular.module('main')
         vm.account = null;
         vm.isAuthenticated = null;
         vm.login = LoginService.open;
-        vm.logout = logout;
+        //vm.logout = logout;
         vm.register = register;
         $rootScope.$on('authenticationSuccess', function() {
             getAccount();
@@ -22,9 +22,9 @@ angular.module('main')
         function register () {
             $state.go('register');
         }
-
+/*
         function logout () {
             Auth.logout();
             $state.go('home');
-        }
+        }*/
     });

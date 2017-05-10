@@ -12,7 +12,7 @@
             parent: 'app',
             url: '/password',
             data: {
-                authorities: ['ROLE_USER', 'ROLE_STUDENT'],
+                authorities: ['ROLE_USER', 'ROLE_STUDENT','ROLE_ADMOFFICE'],
                 pageTitle: 'global.menu.account.password'
             },
             views: {
