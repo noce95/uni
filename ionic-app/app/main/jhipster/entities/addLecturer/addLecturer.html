@@ -1,0 +1,53 @@
+<ion-view view-title="Add Lecturer">
+    <ion-content>
+        <form ng-show = vm.lecturersalvato name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+            <div class="card">
+                <div class="list">   
+                    <div class="modal-body">
+                        <jhi-alert-error></jhi-alert-error>
+                        <div class="form-group" ng-show="vm.lecturer.id">
+                            <label for="id">ID</label>
+                            <input type="text" class="form-control" id="id" name="id"
+                                   ng-model="vm.lecturer.id" readonly />
+                        </div>
+                        <div class="item item-input">
+                            <label class="input-label" for="field_name">Name</label>
+                            <input type="text" class="form-control" name="name" id="field_name"
+                                   ng-model="vm.lecturer.name" placeholder="Enter a name"
+                                   required/>
+                        </div>
+                    </div>
+                    
+                    <label class="item item-input">
+                        <span class="input-label">Surname</span>
+                        <input type="text" class="form-control" name="surname" id="field_surname"
+                               ng-model="vm.lecturer.surname" placeholder="Enter a surname"
+                               required/>
+                    </label>
+                    
+                    <div class="item item-input">
+                        <label class="input-label" for="field_lecturerNumber">Lecturer Number</label>
+                        <input type="text" class="form-control" name="lecturerNumber" id="field_lecturerNumber"
+                               ng-model="vm.lecturer.lecturerNumber" placeholder="Enter a lecturer number"
+                               required/>
+                    </div>
+
+                    <div class="item item-input">
+                        <label for="field_user">User</label>
+                        <select class="form-control" id="field_user" name="user" ng-model="vm.lecturer.user" ng-options="user as user.login for user in vm.users track by user.id">
+                            <option value=""></option>
+                        </select>
+                    </div>
+
+                    <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="button button-full button-positive">
+                        Save
+                    </button>
+                </div>
+            </div>
+        </form>
+        <div style="font-size: 1.5em" class="alert alert-success" ng-show=vm.lectureravviso>
+            <div>Lecturer aggiunto correttamente, ma è ancora user</div>
+        </div>   
+
+    </ion-content>
+</ion-view>

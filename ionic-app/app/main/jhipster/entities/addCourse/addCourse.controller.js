@@ -13,6 +13,8 @@
         vm.corsoavviso = false;
         vm.course = entity;
         vm.save = save;
+        
+        console.log("sono nel controllore");
 
         function save () {
             vm.isSaving = true;
