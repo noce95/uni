@@ -17,7 +17,9 @@
             },
             "name": "Name",
             "surname": "Surname",
-            "lecturerNumber": "Lecturer Number"
+            "lecturerNumber": "Lecturer Number",
+            "course": "Course",
+            "user": "User"
         }
     }
 }

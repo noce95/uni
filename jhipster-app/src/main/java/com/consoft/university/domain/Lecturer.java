@@ -1,9 +1,12 @@
 package com.consoft.university.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -30,6 +33,14 @@ public class Lecturer implements Serializable {
     @NotNull
     @Column(name = "lecturer_number", nullable = false)
     private String lecturerNumber;
+
+    @OneToMany(mappedBy = "lecturer")
+    @JsonIgnore
+    private Set<Course> courses = new HashSet<>();
+
+    @OneToOne
+    @JoinColumn(unique = true)
+    private User user;
 
     public Long getId() {
         return id;
@@ -76,6 +87,44 @@ public class Lecturer implements Serializable {
 
     public void setLecturerNumber(String lecturerNumber) {
         this.lecturerNumber = lecturerNumber;
+    }
+
+    public Set<Course> getCourses() {
+        return courses;
+    }
+
+    public Lecturer courses(Set<Course> courses) {
+        this.courses = courses;
+        return this;
+    }
+
+    public Lecturer addCourse(Course course) {
+        this.courses.add(course);
+        course.setLecturer(this);
+        return this;
+    }
+
+    public Lecturer removeCourse(Course course) {
+        this.courses.remove(course);
+        course.setLecturer(null);
+        return this;
+    }
+
+    public void setCourses(Set<Course> courses) {
+        this.courses = courses;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public Lecturer user(User user) {
+        this.user = user;
+        return this;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Override

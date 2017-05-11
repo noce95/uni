@@ -22,6 +22,7 @@
                     <th><span data-translate="universityApp.lecturer.name">Name</span></th>
                     <th><span data-translate="universityApp.lecturer.surname">Surname</span></th>
                     <th><span data-translate="universityApp.lecturer.lecturerNumber">Lecturer Number</span></th>
+                    <th><span data-translate="universityApp.lecturer.user">User</span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -31,6 +32,9 @@
                     <td>{{lecturer.name}}</td>
                     <td>{{lecturer.surname}}</td>
                     <td>{{lecturer.lecturerNumber}}</td>
+                    <td>
+                        {{lecturer.user.login}}
+                    </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"
