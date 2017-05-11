@@ -20,7 +20,8 @@
             "classroom": "Classroom",
             "duration": "Duration",
             "deadline": "Deadline",
-            "course": "Course"
+            "course": "Course",
+            "student": "Student"
         }
     }
 }

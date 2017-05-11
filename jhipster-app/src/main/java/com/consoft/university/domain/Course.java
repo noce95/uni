@@ -1,9 +1,12 @@
 package com.consoft.university.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -39,6 +42,10 @@ public class Course implements Serializable {
 
     @ManyToOne
     private Lecturer lecturer;
+
+    @OneToMany(mappedBy = "course")
+    @JsonIgnore
+    private Set<Exam> exams = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -124,6 +131,31 @@ public class Course implements Serializable {
 
     public void setLecturer(Lecturer lecturer) {
         this.lecturer = lecturer;
+    }
+
+    public Set<Exam> getExams() {
+        return exams;
+    }
+
+    public Course exams(Set<Exam> exams) {
+        this.exams = exams;
+        return this;
+    }
+
+    public Course addExam(Exam exam) {
+        this.exams.add(exam);
+        exam.setCourse(this);
+        return this;
+    }
+
+    public Course removeExam(Exam exam) {
+        this.exams.remove(exam);
+        exam.setCourse(null);
+        return this;
+    }
+
+    public void setExams(Set<Exam> exams) {
+        this.exams = exams;
     }
 
     @Override

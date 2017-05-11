@@ -99,7 +99,7 @@ public class CourseResource {
         return courseService.findAll();
     }
     */
-  
+
 /*inventato io*/
     public List<Course> getAllCourses() {
         log.debug("REST request to get all Course");

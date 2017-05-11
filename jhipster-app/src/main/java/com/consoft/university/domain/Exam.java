@@ -5,6 +5,8 @@ import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -40,6 +42,12 @@ public class Exam implements Serializable {
 
     @ManyToOne
     private Course course;
+
+    @ManyToMany
+    @JoinTable(name = "exam_student",
+               joinColumns = @JoinColumn(name="exams_id", referencedColumnName="id"),
+               inverseJoinColumns = @JoinColumn(name="students_id", referencedColumnName="id"))
+    private Set<Student> students = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -125,6 +133,31 @@ public class Exam implements Serializable {
 
     public void setCourse(Course course) {
         this.course = course;
+    }
+
+    public Set<Student> getStudents() {
+        return students;
+    }
+
+    public Exam students(Set<Student> students) {
+        this.students = students;
+        return this;
+    }
+
+    public Exam addStudent(Student student) {
+        this.students.add(student);
+        student.getExams().add(this);
+        return this;
+    }
+
+    public Exam removeStudent(Student student) {
+        this.students.remove(student);
+        student.getExams().remove(this);
+        return this;
+    }
+
+    public void setStudents(Set<Student> students) {
+        this.students = students;
     }
 
     @Override

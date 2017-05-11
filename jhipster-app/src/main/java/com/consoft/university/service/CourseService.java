@@ -8,7 +8,7 @@ import java.util.Set;
  * Service Interface for managing Course.
  */
 public interface CourseService {
-    
+
 /* aggiunto io questo sotto*/    
    List<Course> findAllCoursesOfTheCurrentUser();
     //Set<Course> findAllCoursesOfTheCurrentUser();

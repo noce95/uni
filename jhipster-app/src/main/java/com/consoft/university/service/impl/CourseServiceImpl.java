@@ -19,10 +19,10 @@ import java.util.Set;
  */
 @Service
 @Transactional
-public class CourseServiceImpl implements CourseService {
+public class CourseServiceImpl implements CourseService{
 
     private final Logger log = LoggerFactory.getLogger(CourseServiceImpl.class);
-
+    
     private final CourseRepository courseRepository;
 
     public CourseServiceImpl(CourseRepository courseRepository) {
@@ -43,9 +43,9 @@ public class CourseServiceImpl implements CourseService {
     }
 
     /**
-     * Get all the courses.
-     *
-     * @return the list of entities
+     *  Get all the courses.
+     *  
+     *  @return the list of entities
      */
     @Override
     @Transactional(readOnly = true)
@@ -57,10 +57,10 @@ public class CourseServiceImpl implements CourseService {
     }
 
     /**
-     * Get one course by id.
+     *  Get one course by id.
      *
-     * @param id the id of the entity
-     * @return the entity
+     *  @param id the id of the entity
+     *  @return the entity
      */
     @Override
     @Transactional(readOnly = true)
@@ -71,9 +71,9 @@ public class CourseServiceImpl implements CourseService {
     }
 
     /**
-     * Delete the course by id.
+     *  Delete the  course by id.
      *
-     * @param id the id of the entity
+     *  @param id the id of the entity
      */
     @Override
     public void delete(Long id) {
@@ -99,5 +99,5 @@ public class CourseServiceImpl implements CourseService {
         
         myCourseSet.forEach(c -> parsedResult.add(c));
         return parsedResult;
-    }
+}
 }

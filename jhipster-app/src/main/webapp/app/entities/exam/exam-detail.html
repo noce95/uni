@@ -28,6 +28,12 @@
         <dd>
             <a ui-sref="course-detail({id:vm.exam.course.id})">{{vm.exam.course.id}}</a>
         </dd>
+        <dt><span data-translate="universityApp.exam.student">Student</span></dt>
+        <dd>
+            <span ng-repeat="student in vm.exam.students">
+                <a ui-sref="student-detail({id: student.id})">{{student.id}}</a>{{$last ? '' : ', '}}
+            </span>
+        </dd>
     </dl>
 
     <button type="submit"

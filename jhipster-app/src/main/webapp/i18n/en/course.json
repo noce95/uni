@@ -20,7 +20,8 @@
             "description": "Description",
             "cfu": "Cfu",
             "duration": "Duration",
-            "lecturer": "Lecturer"
+            "lecturer": "Lecturer",
+            "exam": "Exam"
         }
     }
 }

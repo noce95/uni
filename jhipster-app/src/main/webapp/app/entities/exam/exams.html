@@ -25,6 +25,7 @@
                     <th><span data-translate="universityApp.exam.duration">Duration</span></th>
                     <th><span data-translate="universityApp.exam.deadline">Deadline</span></th>
                     <th><span data-translate="universityApp.exam.course">Course</span></th>
+                    <th><span data-translate="universityApp.exam.student">Student</span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -38,6 +39,11 @@
                         <td>{{exam.deadline | date:'mediumDate'}}</td>
                     <td>
                         <a ui-sref="course-detail({id:exam.course.id})">{{exam.course.id}}</a>
+                    </td>
+                    <td>
+                        <span ng-repeat="student in exam.students">
+                            <a class="form-control-static" ui-sref="student-detail({id: student.id})">{{student.id}}</a>{{$last ? '' : ', '}}
+                        </span>
                     </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">

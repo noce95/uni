@@ -6,6 +6,12 @@
             "otherEntityName": "lecturer",
             "relationshipType": "many-to-one",
             "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "exam",
+            "otherEntityName": "exam",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "course"
         }
     ],
     "fields": [

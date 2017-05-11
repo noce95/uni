@@ -47,7 +47,7 @@ public class ExamServiceImpl implements ExamService{
     @Transactional(readOnly = true)
     public List<Exam> findAll() {
         log.debug("Request to get all Exams");
-        List<Exam> result = examRepository.findAll();
+        List<Exam> result = examRepository.findAllWithEagerRelationships();
 
         return result;
     }
@@ -62,7 +62,7 @@ public class ExamServiceImpl implements ExamService{
     @Transactional(readOnly = true)
     public Exam findOne(Long id) {
         log.debug("Request to get Exam : {}", id);
-        Exam exam = examRepository.findOne(id);
+        Exam exam = examRepository.findOneWithEagerRelationships(id);
         return exam;
     }
 

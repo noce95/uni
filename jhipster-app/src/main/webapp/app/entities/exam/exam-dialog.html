@@ -76,6 +76,10 @@
                 <option value=""></option>
             </select>
         </div>
+        <div class="form-group">
+            <label data-translate="universityApp.exam.student" for="field_student">Student</label>
+            <select class="form-control" id="field_student" multiple name="student" ng-model="vm.exam.students" ng-options="student as student.id for student in vm.students track by student.id"></select>
+        </div>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">

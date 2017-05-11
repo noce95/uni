@@ -14,5 +14,16 @@
                                  referencedColumnNames="id"
                                  referencedTableName="course"/>
 
+        <addForeignKeyConstraint baseColumnNames="exams_id"
+                                 baseTableName="exam_student"
+                                 constraintName="fk_exam_student_exams_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="exam"/>
+        <addForeignKeyConstraint baseColumnNames="students_id"
+                                 baseTableName="exam_student"
+                                 constraintName="fk_exam_student_students_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="student"/>
+        
     </changeSet>
 </databaseChangeLog>
