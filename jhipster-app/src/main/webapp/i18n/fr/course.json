@@ -19,7 +19,8 @@
             "name": "Name",
             "description": "Description",
             "cfu": "Cfu",
-            "duration": "Duration"
+            "duration": "Duration",
+            "lecturer": "Lecturer"
         }
     }
 }

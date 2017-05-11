@@ -37,6 +37,9 @@ public class Course implements Serializable {
     @Column(name = "duration")
     private Double duration;
 
+    @ManyToOne
+    private Lecturer lecturer;
+
     public Long getId() {
         return id;
     }
@@ -108,6 +111,19 @@ public class Course implements Serializable {
 
     public void setDuration(Double duration) {
         this.duration = duration;
+    }
+
+    public Lecturer getLecturer() {
+        return lecturer;
+    }
+
+    public Course lecturer(Lecturer lecturer) {
+        this.lecturer = lecturer;
+        return this;
+    }
+
+    public void setLecturer(Lecturer lecturer) {
+        this.lecturer = lecturer;
     }
 
     @Override

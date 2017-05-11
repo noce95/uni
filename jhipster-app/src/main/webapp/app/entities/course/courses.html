@@ -24,6 +24,7 @@
                     <th><span data-translate="universityApp.course.description">Description</span></th>
                     <th><span data-translate="universityApp.course.cfu">Cfu</span></th>
                     <th><span data-translate="universityApp.course.duration">Duration</span></th>
+                    <th><span data-translate="universityApp.course.lecturer">Lecturer</span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -35,6 +36,9 @@
                     <td>{{course.description}}</td>
                     <td>{{course.cfu}}</td>
                     <td>{{course.duration}}</td>
+                    <td>
+                        <a ui-sref="lecturer-detail({id:course.lecturer.id})">{{course.lecturer.id}}</a>
+                    </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"

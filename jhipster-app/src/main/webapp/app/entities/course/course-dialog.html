@@ -66,6 +66,12 @@
                     />
         </div>
 
+        <div class="form-group">
+            <label data-translate="universityApp.course.lecturer" for="field_lecturer">Lecturer</label>
+            <select class="form-control" id="field_lecturer" name="lecturer" ng-model="vm.course.lecturer" ng-options="lecturer as lecturer.id for lecturer in vm.lecturers track by lecturer.id">
+                <option value=""></option>
+            </select>
+        </div>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">

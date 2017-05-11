@@ -13,7 +13,7 @@ import java.util.Set;
  */
 @SuppressWarnings("unused")
 public interface CourseRepository extends JpaRepository<Course,Long> {
-    
+
     
     /*@Query("select c "
             + "from Course c "

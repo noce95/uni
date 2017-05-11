@@ -5,14 +5,15 @@
         .module('universityApp')
         .controller('CourseDialogController', CourseDialogController);
 
-    CourseDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Course'];
+    CourseDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Course', 'Lecturer'];
 
-    function CourseDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Course) {
+    function CourseDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Course, Lecturer) {
         var vm = this;
 
         vm.course = entity;
         vm.clear = clear;
         vm.save = save;
+        vm.lecturers = Lecturer.query();
 
         $timeout(function (){
             angular.element('.form-group:eq(1)>input').focus();
