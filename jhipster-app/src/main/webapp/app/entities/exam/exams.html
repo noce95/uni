@@ -1,0 +1,68 @@
+<div>
+    <h2 data-translate="universityApp.exam.home.title">Exams</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="exam.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  data-translate="universityApp.exam.home.createLabel">
+                        Create new Exam
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span data-translate="global.field.id">ID</span></th>
+                    <th><span data-translate="universityApp.exam.data">Data</span></th>
+                    <th><span data-translate="universityApp.exam.hour">Hour</span></th>
+                    <th><span data-translate="universityApp.exam.classroom">Classroom</span></th>
+                    <th><span data-translate="universityApp.exam.duration">Duration</span></th>
+                    <th><span data-translate="universityApp.exam.deadline">Deadline</span></th>
+                    <th><span data-translate="universityApp.exam.course">Course</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="exam in vm.exams track by exam.id">
+                    <td><a ui-sref="exam-detail({id:exam.id})">{{exam.id}}</a></td>
+                        <td>{{exam.data | date:'mediumDate'}}</td>
+                    <td>{{exam.hour}}</td>
+                    <td>{{exam.classroom}}</td>
+                    <td>{{exam.duration}}</td>
+                        <td>{{exam.deadline | date:'mediumDate'}}</td>
+                    <td>
+                        <a ui-sref="course-detail({id:exam.course.id})">{{exam.course.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="exam-detail({id:exam.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="exam.edit({id:exam.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="exam.delete({id:exam.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+{
+    "universityApp": {
+        "exam" : {
+            "home": {
+                "title": "Exams",
+                "createLabel": "Genera un nuovo Exam",
+                "createOrEditLabel": "Genera o modifica un Exam"
+            },
+            "created": "&Egrave; stato generato un nuovo Exam con identificatore {{ param }}",
+            "updated": "&Egrave; stato aggiornato Exam identificato da {{ param }}",
+            "deleted": "&Egrave; stato eliminato Exam con identificatore {{ param }}",
+            "delete": {
+                "question": "Sei sicuro di volere eliminare Exam {{ id }}?"
+            },
+            "detail": {
+                "title": "Exam"
+            },
+            "data": "Data",
+            "hour": "Hour",
+            "classroom": "Classroom",
+            "duration": "Duration",
+            "deadline": "Deadline",
+            "course": "Course"
+        }
+    }
+}

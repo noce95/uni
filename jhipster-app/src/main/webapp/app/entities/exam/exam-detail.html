@@ -1,0 +1,43 @@
+
+<div>
+    <h2><span data-translate="universityApp.exam.detail.title">Exam</span> {{vm.exam.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="universityApp.exam.data">Data</span></dt>
+        <dd>
+            <span>{{vm.exam.data | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="universityApp.exam.hour">Hour</span></dt>
+        <dd>
+            <span>{{vm.exam.hour}}</span>
+        </dd>
+        <dt><span data-translate="universityApp.exam.classroom">Classroom</span></dt>
+        <dd>
+            <span>{{vm.exam.classroom}}</span>
+        </dd>
+        <dt><span data-translate="universityApp.exam.duration">Duration</span></dt>
+        <dd>
+            <span>{{vm.exam.duration}}</span>
+        </dd>
+        <dt><span data-translate="universityApp.exam.deadline">Deadline</span></dt>
+        <dd>
+            <span>{{vm.exam.deadline | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="universityApp.exam.course">Course</span></dt>
+        <dd>
+            <a ui-sref="course-detail({id:vm.exam.course.id})">{{vm.exam.course.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="exam-detail.edit({id:vm.exam.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

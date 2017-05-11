@@ -10,6 +10,7 @@
                 "student": "Student",
                 "course": "Course",
                 "lecturer": "Lecturer",
+                "exam": "Exam",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {
