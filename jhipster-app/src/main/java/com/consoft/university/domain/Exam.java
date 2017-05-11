@@ -146,13 +146,13 @@ public class Exam implements Serializable {
 
     public Exam addStudent(Student student) {
         this.students.add(student);
-        student.getExams().add(this);
+        //student.getExams().add(this);
         return this;
     }
 
     public Exam removeStudent(Student student) {
         this.students.remove(student);
-        student.getExams().remove(this);
+        //student.getExams().remove(this);
         return this;
     }
 

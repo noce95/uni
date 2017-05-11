@@ -64,7 +64,14 @@
         <loadData encoding="UTF-8"
                   file="config/liquibase/exam.csv"
                   separator=";"
-                  tableName="exam"/>
+                  tableName="exam">
+        </loadData>
+              
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/exam_student.csv"
+                  separator=";"
+                  tableName="exam_student">
+        </loadData>
         
         
     </changeSet>

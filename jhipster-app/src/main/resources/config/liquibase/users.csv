@@ -7,4 +7,6 @@ id;login;password_hash;first_name;last_name;email;image_url;activated;lang_key;c
 6;anton;$2a$04$Tlbbru8gdrtlzZ4.uSadte0g7wkmWr/eb/zLIxA6/D2TMBMDuelHu;Anton;Anton;anton@localhost;;true;en;system;system
 7;ciccia;$2a$04$tN79xuEbPth61HszuTvvSOpbSbtso3NqMRcT3id8LzbJgABczlP62;Ciccia;Ciccia;ciccia@localhost;;true;en;system;system
 8;cose;$2a$04$k8LbihdJLlNKW.GZ/QjQzuuUM8jqu.5j5T2hOf04obqKc1KR2E99q;Cose;Cose;cose@localhost;;true;en;system;system
-
+9;prof1;$2a$04$7d8YE.Zbq7qs4J8G/K.VxOgUkr0GS8daqZedp.xneLWXChgeEJt/e;Prof1;Prof1;prof1@localhost;;true;en;system;system
+10;prof2;$2a$04$hqxE./M.MgpmKihvBwtv.ODfZj4ff6zgfI6PRSFz4ywYas/H4giO.;Prof2;Prof2;prof2@localhost;;true;en;system;system
+11;prof3;$2a$04$AM.EJ9tT5Gymdau1.dviSO7MeITKgDqVlFjmtn0uSqYNmvVFXtm4u;Prof3;Prof3;prof3@localhost;;true;en;system;system

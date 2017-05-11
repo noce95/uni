@@ -1,4 +1,4 @@
-id;name;surname;lecturer_number
-1;prof1;prof1;11111
-2;prof2;prof2;22222
-3;prof3;prof3;33333
+id;name;surname;lecturer_number;user_id
+1;prof1;prof1;11111;9
+2;prof2;prof2;22222;10
+3;prof3;prof3;33333;11
