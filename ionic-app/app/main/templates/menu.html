@@ -51,11 +51,17 @@
                 <ion-item ng-switch-when="true" menu-close ui-sref="addStudent" has-authority="ROLE_USER">
                     <span>Add Student</span>
                 </ion-item>
-                <ion-item ng-switch-when="true" menu-close ui-sref="addCourse" has-authority="ROLE_ADMOFFICE">
+                <ion-item ng-switch-when="true" menu-close ui-sref="addCourse" has-any-authority="ROLE_ADMOFFICE,ROLE_ADMIN">
                     <span>Add Course</span>
                 </ion-item>
                 <ion-item ng-switch-when="true" menu-close ui-sref="studentCourse" has-any-authority="ROLE_STUDENT,ROLE_ADMOFFICE,ROLE_ADMIN">
                     <span>Course</span>
+                </ion-item>
+                <ion-item ng-switch-when="true" menu-close ui-sref="home" has-any-authority="ROLE_ADMOFFICE,ROLE_ADMIN">
+                    <span>Add lecturer</span>
+                </ion-item>
+                <ion-item ng-switch-when="true" menu-close ui-sref="home" has-any-authority="ROLE_ADMOFFICE,ROLE_ADMIN,ROLE_LECTURER"> 
+                    <span>Add exam</span>
                 </ion-item>
                 <ion-item ng-switch-when="true" menu-close ng-click="vm.logout()">
                     <span>Log Out</span>
