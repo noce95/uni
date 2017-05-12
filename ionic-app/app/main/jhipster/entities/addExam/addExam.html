@@ -1,0 +1,62 @@
+<ion-view view-title="Add Exam">
+    <ion-content>
+        <form ng-show = vm.examsalvato name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+            <div class="card">
+                <div class="list">   
+                    <div class="modal-body">      
+                        <jhi-alert-error></jhi-alert-error>
+                        <div class="form-group" ng-show="vm.exam.id">
+                            <label for="id">ID</label>
+                            <input type="text" class="form-control" id="id" name="id"
+                                   ng-model="vm.exam.id" readonly />
+                        </div>
+                    </div>    
+                    <label class="item item-input">
+                        <span class="input-label" for="field_data">Data</span>
+                        <input type="date" name="data" uib-datepicker-popup="{{dateformat}}" ng-model="vm.exam.data" is-open="vm.datePickerOpenStatus.date">
+                    </label>
+
+                    <label class="item item-input">
+                        <span class="input-label">Hour</span>
+                        <input type="text" class="form-control" name="Hour" id="field_hour"
+                               ng-model="vm.exam.hour" placeholder="Enter hour"
+                               required/>
+                    </label>
+                    <label class="item item-input">
+                        <span class="input-label">Classroom</span>
+                        <input type="text" class="form-control" name="Classroom" id="field_classroom"
+                               ng-model="vm.exam.classroom" placeholder="Enter classroom"
+                               required/>
+                    </label>
+
+                    <label class="item item-input">
+                        <span class="input-label">Duration</span>
+                        <input type="text" class="form-control" name="Duration" id="field_duration"
+                               ng-model="vm.exam.duration" placeholder="Enter duration in minutes"
+                               required/>
+                    </label>
+
+                    <label class="item item-input">
+                        <span class="input-label" for="field_deadline">Deadline</span>
+                        <input type="date" name="deadline" uib-datepicker-popup="{{dateformat}}" ng-model="vm.exam.deadline" is-open="vm.datePickerOpenStatus.date">
+                    </label>
+
+                    <div class="form-group">
+                        <label for="field_course">Course</label>
+                        <select class="form-control" id="field_course" name="course" ng-model="vm.exam.course" ng-options="course as course.name for course in vm.courses track by course.name">
+                            <option value=""></option>
+                        </select>
+                    </div>
+
+                    <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="button button-full button-positive">
+                        Save
+                    </button>
+                </div>
+            </div>
+        </form>
+        <div style="font-size: 1.5em" class="alert alert-success" ng-show=vm.examavviso>
+            <div>Exam aggiunto correttamente</div>
+        </div>   
+
+    </ion-content>
+</ion-view>

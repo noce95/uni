@@ -17,7 +17,6 @@ function addStudentController($timeout, $window, $state, Principal, $scope, enti
     vm.openCalendar = openCalendar;
     vm.save = save;
     getAccount();
-    console.log("sono nel controller!");
     
     
     function getAccount() {

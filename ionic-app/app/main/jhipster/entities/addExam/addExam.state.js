@@ -8,32 +8,34 @@
     stateConfig.$inject = ['$stateProvider'];
 
     function stateConfig($stateProvider) {
-        $stateProvider.state('addCourse', {
+        $stateProvider
+        .state('addExam', {
             parent: 'app',
-            url: '/addCourse',
+            url: '/addExam',
             data: {
-                authorities: ['ROLE_ADMOFFICE','ROLE_ADMIN','ROLE_LECTURER'],
-                pageTitle: 'addCourse.title'
+                authorities: ['ROLE_ADMIN','ROLE_ADMOFFICE','ROLE_LECTURER'],
+                pageTitle: 'addExam.title'
             },
             views: {
                 'pageContent': {
-                    templateUrl: 'main/jhipster/entities/addCourse/addCourse.html',
-                    controller: 'addCourseController',
-                    controllerAs: 'vm',
+                    templateUrl: 'main/jhipster/entities/addExam/addExam.html',
+                    controller: 'addExamController',
+                    controllerAs: 'vm'
                 }
             },
             resolve: {
                 entity: function () {
                     return {
-                        code: null,
-                        name: null,
-                        description: null,
-                        cfu: null,
+                        data: null,
+                        hour: null,
+                        classroom: null,
                         duration: null,
+                        deadline: null,
                         id: null
                     };
                 }
             }
+
         });
     }
 })();
