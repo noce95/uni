@@ -1,0 +1,31 @@
+<ion-view view-title="Courses">
+    <ion-content>
+        <div>
+            <br/>
+            <div class="table-responsive">
+                <table class="jh-table table table-striped">
+                    <thead>
+                        <tr>
+                            <th><span>Data</span></th>
+                            <th><span>Hour</span></th>
+                            <th><span>Classroom</span></th>
+                            <th><span>Duration</span></th>
+                            <th><span>Deadline</span></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="exam in vm.exams track by exam.id">
+                            <td>{{exam.data| date:'mediumDate'}}</td>
+                            <td>{{exam.hour}}</td>
+                            <td>{{exam.classroom}}</td>
+                            <td>{{exam.duration}}</td>
+                            <td>{{exam.deadline| date:'mediumDate'}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </ion-content>
+</ion-view>

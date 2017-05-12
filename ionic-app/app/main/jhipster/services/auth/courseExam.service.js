@@ -3,12 +3,12 @@
     'use strict';
     angular
         .module('main')
-        .factory('studentCourseService', studentCourseService);
+        .factory('courseExamService', courseExamService);
 
-    studentCourseService.$inject = ['$resource'];
+    courseExamService.$inject = ['$resource'];
 
-    function studentCourseService ($resource) {
-        var resourceUrl =  'api/courses';
+    function courseExamService ($resource) {
+        var resourceUrl =  'api/exams';
 
         return $resource(resourceUrl, {}, {
             'query': { method: 'GET', isArray: true},

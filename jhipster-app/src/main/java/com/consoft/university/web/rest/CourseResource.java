@@ -111,7 +111,7 @@ public class CourseResource {
         log.debug("authorities: "+auth.getAuthorities().size());
         for(GrantedAuthority a : auth.getAuthorities()){
             log.debug(a.toString());
-            if(a.getAuthority().equals(AuthoritiesConstants.ADMIN) || a.getAuthority().equals(AuthoritiesConstants.ADMOFFICE) || a.getAuthority().equals(AuthoritiesConstants.USER) ){
+            if(a.getAuthority().equals(AuthoritiesConstants.ADMIN) || a.getAuthority().equals(AuthoritiesConstants.ADMOFFICE) || a.getAuthority().equals(AuthoritiesConstants.USER) || a.getAuthority().equals(AuthoritiesConstants.LECTURER) ){
               return courseService.findAll();  
             }
         }

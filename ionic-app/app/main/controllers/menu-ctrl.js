@@ -7,6 +7,7 @@ angular.module('main')
         vm.logout = logout;
 
         function logout () {
+            $window.location.reload();
             Auth.logout();
             $state.go('home');
             $window.location.reload(); //aggiunto per risolvere il problema della freccia quando si fa il logout
