@@ -5,21 +5,45 @@
         .module('main')
         .controller('courseExamController', courseExamController);
 
-    courseExamController.$inject = ['courseExamService'];
+    courseExamController.$inject = ['courseExamService','studentCourseService','$stateParams'];
 
-    function courseExamController (courseExamService) {
+    function courseExamController (courseExamService, studentCourseService, $stateParams) {
         
         var vm = this;
-
+        //vm.prenota = prenota();
+        
         vm.exams = [];
-
-        loadAll();
-
+        vm.mycourses = [];
+        vm.indice = $stateParams.id;
+        vm.myexams = [];
+        
+        loadAll();  
+        
+        /*
+        console.log($stateParams.prova1);
+        console.log($stateParams.prova2);
+        */
         function loadAll() {
             courseExamService.query(function(result) {
                 vm.exams = result;
                 vm.searchQuery = null;
+                console.log("exams");
+                console.log(result);
+            });
+            studentCourseService.query(function(result) {
+                console.log("courses");
+                console.log(result);
+                vm.mycourses = result;
+                vm.searchQuery = null;
             });
         }
+        
+        
+        
+        
+        /*
+        function prenota(){
+            console.log("hai prenotato");
+        }*/
     }
 })();

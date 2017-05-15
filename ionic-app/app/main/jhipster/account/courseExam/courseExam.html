@@ -1,5 +1,6 @@
-<ion-view view-title="Courses">
+<ion-view view-title="Exams">
     <ion-content>
+        <h2><span>esami di: </span>{{vm.mycourses[vm.indice].name}}</h2>
         <div>
             <br/>
             <div class="table-responsive">
@@ -15,17 +16,24 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <!--<tr ng-repeat="exam in vm.exams track by exam.id">-->
                         <tr ng-repeat="exam in vm.exams track by exam.id">
                             <td>{{exam.data| date:'mediumDate'}}</td>
                             <td>{{exam.hour}}</td>
                             <td>{{exam.classroom}}</td>
                             <td>{{exam.duration}}</td>
                             <td>{{exam.deadline| date:'mediumDate'}}</td>
+                            <td><button type="submit"
+                                    ui-sref="home"
+                                    menu-close
+                                    class="button button-positive">
+                                    prenota
+                            </button></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
-
+        
     </ion-content>
 </ion-view>

@@ -12,7 +12,15 @@
         $stateProvider
         .state('courseExam', {
             parent: 'app',
-            url: '/courseExam',
+            url: '/courseExam/{id}',
+            //url: '/courseExam',
+            /*
+            params: {
+                'prova1': 'prova1',
+                'prova2': 'asdgasd',
+                '3prova3': '3prova3'
+            },
+            */
             data: {
                 authorities: ['ROLE_STUDENT','ROLE_ADMIN','ROLE_ADMOFFICE'],
                 pageTitle: 'courseExam.title'
@@ -23,7 +31,13 @@
                     controller: 'courseExamController',
                     controllerAs: 'vm'
                 }
-            }
+            }/*,
+            resolve: {
+                entity: ['$stateParams', 'courseExamService', function($stateParams, courseExamService) {
+                    return courseExamService.get({id : $stateParams.id}).$promise;
+                }]
+            } */  
+            
         });
     };    
 

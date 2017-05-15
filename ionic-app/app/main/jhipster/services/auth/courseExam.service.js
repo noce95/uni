@@ -8,7 +8,8 @@
     courseExamService.$inject = ['$resource'];
 
     function courseExamService ($resource) {
-        var resourceUrl =  'api/exams';
+        var resourceUrl =  'api/exams/:id';
+        //var resourceUrl =  'api/exams';
 
         return $resource(resourceUrl, {}, {
             'query': { method: 'GET', isArray: true},

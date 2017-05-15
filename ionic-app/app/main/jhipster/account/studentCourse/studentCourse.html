@@ -14,11 +14,11 @@
                     </thead>
                     <tbody>
                         <tr ng-repeat="course in vm.courses track by course.id">
-                            <td>{{course.code}}</td>
+                            <td>{{course.code}}</td>    
                             <td>{{course.name}}</td>
                             <td>{{course.cfu}}</td>
-                            <!--<td><a ui-sref="course-detail({id:course.id})">{{course.id}}</a></td>-->
-                            <td><a menu-close ui-sref="courseExam">appelli</a></td>
+                            <td><a menu-close ui-sref="courseExam({id:$index})">appelli </a>{{$index}}</td>
+                            <!--<td><a menu-close ui-sref="courseExam">appelli</a></td>-->
                         </tr>
                     </tbody>
                 </table>

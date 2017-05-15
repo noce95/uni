@@ -16,6 +16,18 @@ import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Optional;
 
+/*aggiunte a caso*/
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.GrantedAuthority;
+import java.util.ArrayList;
+import com.consoft.university.security.AuthoritiesConstants;
+import static com.sun.corba.se.spi.presentation.rmi.StubAdapter.request;
+import java.io.*;
+import java.net.*;
+import javax.servlet.http.HttpServletRequest;
+/* fino a qui*/
+
 /**
  * REST controller for managing Exam.
  */
@@ -80,13 +92,47 @@ public class ExamResource {
      *
      * @return the ResponseEntity with status 200 (OK) and the list of exams in body
      */
+    
     @GetMapping("/exams")
     @Timed
-    public List<Exam> getAllExams() {
+    public List<Exam> getAllExams(HttpServletRequest r) {
+        
+        System.out.println("ciao");
+        System.out.println(r.getRequestURL());
+        System.out.println(r.getRequestURI());
+        System.out.println();
+        /*la parte sopra si può togliere, erano solo esperimenti per capire l'url, anche cio che passi si può togliere*/
         log.debug("REST request to get all Exams");
         return examService.findAll();
     }
-
+    
+    
+/*inventato io*//*
+    public List<Exam> getAllExams() {
+        log.debug("REST request to get all Course");
+        List<Exam> allExamsList = new ArrayList<Exam>(); //tutti gli esami
+        List<Exam> examsList = new ArrayList<Exam>(); //solo quelli del corso, bisogna trovare il modo di passare un id
+        allExamsList = examService.findAll();
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String currentPrincipalName = auth.getName();
+        log.debug("authentication name: " + currentPrincipalName);
+     
+        log.debug("authorities: " + auth.getAuthorities().size());
+        for(GrantedAuthority a : auth.getAuthorities()){
+            log.debug(a.toString());
+            if(a.getAuthority().equals(AuthoritiesConstants.ADMIN) || a.getAuthority().equals(AuthoritiesConstants.ADMOFFICE)){
+              return allExamsList;  
+            }
+        }
+        
+        for(Exam e : allExamsList){
+            if(e.getCourse().getId() == 5) //cosi funziona ma al posto del numero bisogna metterci l'id del corso
+                examsList.add(e);
+        }
+        return examsList;
+    }*/
+/*fin qui*/
+    
     /**
      * GET  /exams/:id : get the "id" exam.
      *
