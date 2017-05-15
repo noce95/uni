@@ -13,6 +13,7 @@
         .state('courseExam', {
             parent: 'app',
             url: '/courseExam/{id}',
+            
             //url: '/courseExam',
             /*
             params: {

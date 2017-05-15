@@ -93,22 +93,22 @@ public class ExamResource {
      * @return the ResponseEntity with status 200 (OK) and the list of exams in body
      */
     
-    @GetMapping("/exams")
-    @Timed
+    @GetMapping("/exams/{id}")
+    @Timed/*
     public List<Exam> getAllExams(HttpServletRequest r) {
         
         System.out.println("ciao");
         System.out.println(r.getRequestURL());
         System.out.println(r.getRequestURI());
         System.out.println();
-        /*la parte sopra si può togliere, erano solo esperimenti per capire l'url, anche cio che passi si può togliere*/
+        //la parte sopra si può togliere, erano solo esperimenti per capire l'url, anche cio che passi si può togliere
         log.debug("REST request to get all Exams");
         return examService.findAll();
-    }
+    }*/
     
     
-/*inventato io*//*
-    public List<Exam> getAllExams() {
+/*inventato io*/
+    public List<Exam> getAllExams(@PathVariable Long id) {
         log.debug("REST request to get all Course");
         List<Exam> allExamsList = new ArrayList<Exam>(); //tutti gli esami
         List<Exam> examsList = new ArrayList<Exam>(); //solo quelli del corso, bisogna trovare il modo di passare un id
@@ -126,11 +126,11 @@ public class ExamResource {
         }
         
         for(Exam e : allExamsList){
-            if(e.getCourse().getId() == 5) //cosi funziona ma al posto del numero bisogna metterci l'id del corso
+            if(e.getCourse().getId() == id) //cosi funziona ma al posto del numero bisogna metterci l'id del corso
                 examsList.add(e);
         }
         return examsList;
-    }*/
+    }
 /*fin qui*/
     
     /**
@@ -139,6 +139,8 @@ public class ExamResource {
      * @param id the id of the exam to retrieve
      * @return the ResponseEntity with status 200 (OK) and with body the exam, or with status 404 (Not Found)
      */
+    
+/*commentato io
     @GetMapping("/exams/{id}")
     @Timed
     public ResponseEntity<Exam> getExam(@PathVariable Long id) {
@@ -146,7 +148,9 @@ public class ExamResource {
         Exam exam = examService.findOne(id);
         return ResponseUtil.wrapOrNotFound(Optional.ofNullable(exam));
     }
-
+fin qui */
+    
+    
     /**
      * DELETE  /exams/:id : delete the "id" exam.
      *

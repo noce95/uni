@@ -5,24 +5,30 @@
         .module('main')
         .controller('courseExamController', courseExamController);
 
-    courseExamController.$inject = ['courseExamService','studentCourseService','$stateParams'];
+    courseExamController.$inject = ['$http','courseExamService','studentCourseService','$stateParams'];
 
-    function courseExamController (courseExamService, studentCourseService, $stateParams) {
+    function courseExamController ($http, courseExamService, studentCourseService, $stateParams) {
         
         var vm = this;
         //vm.prenota = prenota();
         
         vm.exams = [];
         vm.mycourses = [];
-        vm.indice = $stateParams.id;
         vm.myexams = [];
         
-        loadAll();  
+        var indice = $stateParams.id;
+        
+        var myUrl ="api/exams/"+indice;
+        $http.get(myUrl).success(function(data){
+            vm.exams = data;
+        });
+        
+        //loadAll();  
         
         /*
         console.log($stateParams.prova1);
         console.log($stateParams.prova2);
-        */
+        *//*
         function loadAll() {
             courseExamService.query(function(result) {
                 vm.exams = result;
@@ -37,7 +43,7 @@
                 vm.searchQuery = null;
             });
         }
-        
+        */
         
         
         
