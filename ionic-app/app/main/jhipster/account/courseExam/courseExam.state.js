@@ -12,7 +12,7 @@
         $stateProvider
         .state('courseExam', {
             parent: 'app',
-            url: '/courseExam/{id}',
+            url: '/courseExam',
             data: {
                 authorities: ['ROLE_STUDENT','ROLE_ADMIN','ROLE_ADMOFFICE'],
                 pageTitle: 'courseExam.title'

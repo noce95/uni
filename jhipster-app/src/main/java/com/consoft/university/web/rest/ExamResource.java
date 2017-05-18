@@ -91,6 +91,7 @@ public class ExamResource {
     /**
      * GET  /exams : get all the exams.
      *
+     * @param prova
      * @return the ResponseEntity with status 200 (OK) and the list of exams in body
      */
     
@@ -98,18 +99,16 @@ public class ExamResource {
     @Timed
    
     
-    public List<Exam> getAllExams(HttpServletRequest r, @RequestParam(value="courseId") Long prova)   {
+    public List<Exam> getAllExams(@RequestParam(value="courseId") Long prova)   {
         
         System.out.println("ciao");
-        System.out.println(r.getRequestURL());
-        System.out.println(r.getRequestURI());
-        System.out.println("courseId");
+        System.out.println("courseId del resource");
         System.out.println(prova);
         System.out.println();
         //la parte sopra si può togliere, erano solo esperimenti per capire l'url, anche cio che passi si può togliere
         log.debug("REST request to get all Exams");
         log.debug("REST request to get all Course");
-        List<Exam> allExamsList = new ArrayList<Exam>(); //tutti gli esami
+        List<Exam> allExamsList = new ArrayList<>(); //tutti gli esami
         List<Exam> examsList = new ArrayList<Exam>(); //solo quelli del corso, bisogna trovare il modo di passare un id
         allExamsList = examService.findAll();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
