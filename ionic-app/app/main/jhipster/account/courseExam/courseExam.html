@@ -1,6 +1,6 @@
 <ion-view view-title="Exams">
     <ion-content>
-        <h2><span>esami di: </span>{{vm.mycourses[vm.indice].name}}</h2>
+        <h2><span>esami di: </span>{{vm.exams[0].course.name}}</h2>
         <div>
             <br/>
             <div class="table-responsive">
@@ -16,7 +16,6 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!--<tr ng-repeat="exam in vm.exams track by exam.id">-->
                         <tr ng-repeat="exam in vm.exams track by exam.id">
                             <td>{{exam.data| date:'mediumDate'}}</td>
                             <td>{{exam.hour}}</td>

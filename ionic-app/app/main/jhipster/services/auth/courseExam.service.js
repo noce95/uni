@@ -5,14 +5,18 @@
         .module('main')
         .factory('courseExamService', courseExamService);
 
-    courseExamService.$inject = ['$resource'];
+    courseExamService.$inject = ['$resource', '$stateParams'];
 
-    function courseExamService ($resource) {
-        var resourceUrl =  'api/exams/:id';
-        //var resourceUrl =  'api/exams';
-
+    function courseExamService ($resource, $stateParams) {
+        var resourceUrl =  'api/exams';
+        var parametro = $stateParams.id;
+        console.log("parametro");
+        console.log(parametro);
+        console.log($stateParams.id); //per vederlo devo avere nello state '/courseExam/{id}'
+        
+        
         return $resource(resourceUrl, {}, {
-            'query': { method: 'GET', isArray: true},
+            'query': { method: 'GET', params: {courseId : parametro} , isArray: true},
             'get': {
                 method: 'GET',
                 transformResponse: function (data) {

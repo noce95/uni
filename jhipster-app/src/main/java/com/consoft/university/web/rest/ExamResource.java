@@ -25,6 +25,7 @@ import com.consoft.university.security.AuthoritiesConstants;
 import static com.sun.corba.se.spi.presentation.rmi.StubAdapter.request;
 import java.io.*;
 import java.net.*;
+import java.util.Objects;
 import javax.servlet.http.HttpServletRequest;
 /* fino a qui*/
 
@@ -93,22 +94,20 @@ public class ExamResource {
      * @return the ResponseEntity with status 200 (OK) and the list of exams in body
      */
     
-    @GetMapping("/exams/{id}")
-    @Timed/*
-    public List<Exam> getAllExams(HttpServletRequest r) {
+    @GetMapping("/exams")
+    @Timed
+   
+    
+    public List<Exam> getAllExams(HttpServletRequest r, @RequestParam(value="courseId") Long prova)   {
         
         System.out.println("ciao");
         System.out.println(r.getRequestURL());
         System.out.println(r.getRequestURI());
+        System.out.println("courseId");
+        System.out.println(prova);
         System.out.println();
         //la parte sopra si può togliere, erano solo esperimenti per capire l'url, anche cio che passi si può togliere
         log.debug("REST request to get all Exams");
-        return examService.findAll();
-    }*/
-    
-    
-/*inventato io*/
-    public List<Exam> getAllExams(@PathVariable Long id) {
         log.debug("REST request to get all Course");
         List<Exam> allExamsList = new ArrayList<Exam>(); //tutti gli esami
         List<Exam> examsList = new ArrayList<Exam>(); //solo quelli del corso, bisogna trovare il modo di passare un id
@@ -126,13 +125,13 @@ public class ExamResource {
         }
         
         for(Exam e : allExamsList){
-            if(e.getCourse().getId() == id) //cosi funziona ma al posto del numero bisogna metterci l'id del corso
+            if(Objects.equals(e.getCourse().getId(), prova) ) //cosi funziona ma al posto del numero bisogna metterci l'id del corso
                 examsList.add(e);
         }
         return examsList;
     }
-/*fin qui*/
     
+
     /**
      * GET  /exams/:id : get the "id" exam.
      *
@@ -140,7 +139,7 @@ public class ExamResource {
      * @return the ResponseEntity with status 200 (OK) and with body the exam, or with status 404 (Not Found)
      */
     
-/*commentato io
+
     @GetMapping("/exams/{id}")
     @Timed
     public ResponseEntity<Exam> getExam(@PathVariable Long id) {
@@ -148,7 +147,6 @@ public class ExamResource {
         Exam exam = examService.findOne(id);
         return ResponseUtil.wrapOrNotFound(Optional.ofNullable(exam));
     }
-fin qui */
     
     
     /**
