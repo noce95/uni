@@ -22,10 +22,8 @@
                             <td>{{exam.classroom}}</td>
                             <td>{{exam.duration}}</td>
                             <td>{{exam.deadline| date:'mediumDate'}}</td>
-                            <td><button type="submit"
-                                    ui-sref="home"
-                                    menu-close
-                                    class="button button-positive">
+                            <td><button type="submit" ng-click="iscrivi(exam.id)"
+                                    menu-close class="button-small button-positive">
                                     prenota
                             </button></td>
                         </tr>

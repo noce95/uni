@@ -5,11 +5,12 @@
         .module('main')
         .controller('studentCourseController', studentCourseController);
 
-    studentCourseController.$inject = ['studentCourseService', '$scope', '$state', '$rootScope'];
+    studentCourseController.$inject = ['studentCourseService', 'addStudentService', '$scope', '$state', '$rootScope'];
 
-    function studentCourseController (studentCourseService, $scope, $state, $rootScope) {
+    function studentCourseController (studentCourseService, addStudentService, $scope, $state, $rootScope) {
         
         var vm = this;
+        var idStudent;
         
         vm.courses = [];
 
@@ -20,14 +21,18 @@
                 vm.courses = result;
                 vm.searchQuery = null;
             });
+            addStudentService.query(function(result) {
+                idStudent = result[0].id;
+                vm.searchQuery = null;
+                $rootScope.studentId = idStudent;
+            });
         }
         
         $scope.passaId = function (courseId){
-            console.log("controller studentCourse");
-            console.log(courseId);
             $state.go("courseExam", {courseId: courseId});
             $rootScope.corso = courseId;
         };
+        
         
         
     }

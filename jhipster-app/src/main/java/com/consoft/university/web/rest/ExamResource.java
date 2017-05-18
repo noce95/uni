@@ -124,7 +124,7 @@ public class ExamResource {
         }
         
         for(Exam e : allExamsList){
-            if(Objects.equals(e.getCourse().getId(), prova) ) //cosi funziona ma al posto del numero bisogna metterci l'id del corso
+            if(Objects.equals(e.getCourse().getId(), prova) ) 
                 examsList.add(e);
         }
         return examsList;
