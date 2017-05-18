@@ -23,13 +23,7 @@
                     controller: 'courseExamController',
                     controllerAs: 'vm'
                 }
-            }/*,
-            resolve: {
-                entity: ['$stateParams', 'courseExamService', function($stateParams, courseExamService) {
-                    return courseExamService.get({id : $stateParams.id}).$promise;
-                }]
-            } */  
-            
+            }
         });
     };    
 
