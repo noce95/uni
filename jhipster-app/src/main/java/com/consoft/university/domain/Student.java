@@ -1,4 +1,4 @@
-package com.consoft.university.domain;
+ package com.consoft.university.domain;
 
 
 import javax.persistence.*;
@@ -47,7 +47,7 @@ public class Student implements Serializable {
     @Column(name = "student_number")
     private String studentNumber;
 
-    @ManyToMany
+    @ManyToMany(fetch=FetchType.EAGER)
     @JoinTable(name = "student_attend",
                joinColumns = @JoinColumn(name="students_id", referencedColumnName="id"),
                inverseJoinColumns = @JoinColumn(name="attends_id", referencedColumnName="id"))

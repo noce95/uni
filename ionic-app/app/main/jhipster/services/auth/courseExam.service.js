@@ -23,15 +23,16 @@
                 }
             },
             'update': { method:'PUT' }
-            ,
+            //,
             /*inventato*/ //per salvare uno studente ad un esame
+            /*
             'save': {
                 method: 'POST',
                 transformRequest: function (data) {
                     var copy = angular.copy(data);
                     return angular.toJson(copy);
                 }
-            }
+            }*/
             /*fin qui*/
         });
     }
